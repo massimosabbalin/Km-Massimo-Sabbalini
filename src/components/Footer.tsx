@@ -19,13 +19,18 @@ const Footer = () => {
               Link Rapidi
             </h4>
             <div className="space-y-3">
-              {["Chi Siamo", "Trattamenti", "Le Nostre Sedi", "Contatti"].map((item) => (
+              {[
+                { label: "Chi Siamo", href: "#about" },
+                { label: "Trattamenti", href: "#trattamenti" },
+                { label: "Le Nostre Sedi", href: "#sedi" },
+                { label: "Contatti", href: "#contatti" },
+              ].map((item) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(/\s/g, "").replace("chiSiamo", "about")}`}
+                  key={item.label}
+                  href={item.href}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {item}
+                  {item.label}
                 </a>
               ))}
             </div>
@@ -36,7 +41,6 @@ const Footer = () => {
               Contatti
             </h4>
             <div className="space-y-3 text-sm text-muted-foreground">
-              <p>Referente: Alessia</p>
               <p>Tel. 334 244 7375</p>
               <p>Tel. 342 056 0770</p>
               <a
