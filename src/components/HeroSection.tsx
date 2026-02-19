@@ -143,9 +143,8 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
-            href="https://wa.me/393342447375?text=Buongiorno%2C%20vorrei%20prenotare%20una%20consulenza."
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            onClick={(e) => e.preventDefault()}
             className="bg-gold-gradient text-primary-foreground px-10 py-4 rounded-full text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
           >
             Prenota Consulenza

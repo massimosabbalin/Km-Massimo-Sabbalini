@@ -45,9 +45,8 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="https://wa.me/393342447375?text=Buongiorno%2C%20vorrei%20prenotare%20una%20consulenza."
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            onClick={(e) => e.preventDefault()}
             className="bg-gold-gradient text-primary-foreground px-6 py-2.5 rounded-full text-xs tracking-[0.15em] uppercase font-medium hover:opacity-90 transition-opacity"
           >
             Prenota Ora
@@ -82,9 +81,8 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="https://wa.me/393342447375?text=Buongiorno%2C%20vorrei%20prenotare%20una%20consulenza."
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                onClick={(e) => e.preventDefault()}
                 className="bg-gold-gradient text-primary-foreground px-6 py-3 rounded-full text-xs tracking-[0.15em] uppercase font-medium text-center mt-2"
               >
                 Prenota Ora

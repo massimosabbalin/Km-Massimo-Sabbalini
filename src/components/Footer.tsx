@@ -44,9 +44,8 @@ const Footer = () => {
               <p>Tel. 334 244 7375</p>
               <p>Tel. 342 056 0770</p>
               <a
-                href="https://wa.me/393342447375"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#"
+                onClick={(e) => e.preventDefault()}
                 className="inline-block text-primary hover:text-foreground transition-colors"
               >
                 WhatsApp →
