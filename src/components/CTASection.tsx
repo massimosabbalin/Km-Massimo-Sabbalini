@@ -31,9 +31,8 @@ const CTASection = () => {
           </p>
 
           <a
-            href="https://wa.me/393342447375?text=Buongiorno%2C%20vorrei%20prenotare%20una%20consulenza%20con%20il%20Dott.%20Sabbalini."
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            onClick={(e) => e.preventDefault()}
             className="inline-flex items-center gap-3 bg-gold-gradient text-primary-foreground px-12 py-5 rounded-full text-sm tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">

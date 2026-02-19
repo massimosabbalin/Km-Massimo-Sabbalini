@@ -102,9 +102,8 @@ const TreatmentCard = ({ treatment, index, inView }: { treatment: typeof treatme
           {treatment.description}
         </p>
         <a
-          href="https://wa.me/393342447375?text=Buongiorno%2C%20vorrei%20informazioni%20sul%20trattamento%20di%20" 
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#"
+          onClick={(e) => e.preventDefault()}
           className="inline-block mt-4 text-xs tracking-[0.15em] uppercase text-primary hover:text-foreground transition-colors"
         >
           Richiedi info →
@@ -195,9 +194,8 @@ const TreatmentsSection = () => {
             Contattaci per un appuntamento personalizzato
           </p>
           <a
-            href="https://wa.me/393342447375?text=Buongiorno%2C%20vorrei%20informazioni%20sui%20trattamenti."
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            onClick={(e) => e.preventDefault()}
             className="inline-flex items-center gap-3 bg-gold-gradient text-primary-foreground px-8 py-3.5 rounded-full text-xs tracking-[0.15em] uppercase font-medium hover:opacity-90 transition-opacity"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
