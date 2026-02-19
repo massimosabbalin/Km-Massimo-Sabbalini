@@ -5,7 +5,6 @@ import TreatmentsSection from "@/components/TreatmentsSection";
 import LocationsSection from "@/components/LocationsSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const Index = () => {
   return (
@@ -17,7 +16,6 @@ const Index = () => {
       <LocationsSection />
       <CTASection />
       <Footer />
-      <WhatsAppFloat />
     </main>
   );
 };

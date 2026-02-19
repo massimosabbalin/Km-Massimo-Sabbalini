@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.png";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "Chi Siamo", href: "#about" },
@@ -24,7 +24,7 @@ const Navbar = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.8, delay: 2.5 }}
+      transition={{ duration: 0.8, delay: 3.8 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled ? "bg-background/95 backdrop-blur-md shadow-lg shadow-primary/5" : "bg-transparent"
       }`}
@@ -48,7 +48,7 @@ const Navbar = () => {
             href="https://wa.me/393342447375?text=Buongiorno%2C%20vorrei%20prenotare%20una%20consulenza."
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gold-gradient text-primary-foreground px-6 py-2.5 text-xs tracking-[0.15em] uppercase font-medium hover:opacity-90 transition-opacity"
+            className="bg-gold-gradient text-primary-foreground px-6 py-2.5 rounded-full text-xs tracking-[0.15em] uppercase font-medium hover:opacity-90 transition-opacity"
           >
             Prenota Ora
           </a>
@@ -85,7 +85,7 @@ const Navbar = () => {
                 href="https://wa.me/393342447375?text=Buongiorno%2C%20vorrei%20prenotare%20una%20consulenza."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gold-gradient text-primary-foreground px-6 py-3 text-xs tracking-[0.15em] uppercase font-medium text-center mt-2"
+                className="bg-gold-gradient text-primary-foreground px-6 py-3 rounded-full text-xs tracking-[0.15em] uppercase font-medium text-center mt-2"
               >
                 Prenota Ora
               </a>
