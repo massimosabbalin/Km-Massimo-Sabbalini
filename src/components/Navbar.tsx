@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "Chi Siamo", href: "#about" },
-  { label: "Trattamenti", href: "#trattamenti" },
+  { label: "Trattamenti", href: "/trattamenti", isRoute: true },
   { label: "Le Nostre Sedi", href: "#sedi" },
   { label: "Contatti", href: "#contatti" },
 ];
