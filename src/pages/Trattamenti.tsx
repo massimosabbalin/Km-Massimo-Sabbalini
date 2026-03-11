@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowLeft } from "lucide-react";
+import { ChevronDown, ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,33 +14,63 @@ import baMento from "@/assets/ba-mento.jpg";
 
 const allTreatments = [
   {
-    name: "Filler Labbra",
-    price: "€ 350",
-    description: "Trattamento con acido ialuronico per labbra più piene, definite e naturali. Dona volume e idratazione duratura.",
+    name: "Filler Labbra 1 Fiala",
+    price: "€ 290",
+    description: "Trattamento con acido ialuronico per labbra più piene, definite e naturali. Dona volume e idratazione duratura con una fiala completa.",
     image: baFillerLabbra,
   },
   {
-    name: "Botox Viso",
+    name: "Filler Labbra ½ Fiala",
+    price: "€ 180",
+    description: "Trattamento con acido ialuronico per un risultato più delicato e naturale, ideale per chi desidera un leggero aumento di volume.",
+    image: baFillerLabbra,
+  },
+  {
+    name: "Botox Completo",
+    price: "€ 400",
+    description: "Trattamento completo con tossina botulinica su fronte, contorno occhi e glabella per un aspetto più fresco e rilassato.",
+    image: baMandibolare,
+  },
+  {
+    name: "Botox Fronte",
     price: "€ 300",
-    description: "Riduce le rughe d'espressione su fronte, contorno occhi e glabella per un aspetto più fresco e rilassato.",
+    description: "Riduce le rughe orizzontali della fronte per un aspetto più disteso e giovane.",
+    image: baMandibolare,
+  },
+  {
+    name: "Botox Contorno Occhi",
+    price: "€ 250",
+    description: "Trattamento mirato per le zampe di gallina e le rughe del contorno occhi.",
+    image: baMandibolare,
+  },
+  {
+    name: "Botox Solo Glabellare",
+    price: "€ 180",
+    description: "Trattamento specifico per le rughe tra le sopracciglia, eliminando l'espressione corrucciata.",
     image: baMandibolare,
   },
   {
     name: "Solco Nasale Labiale",
-    price: "€ 350",
+    price: "€ 300",
     description: "Riempimento del solco naso-labiale con filler di ultima generazione per un viso più armonioso e giovane.",
     image: baFillerLabbra,
   },
   {
     name: "Definizione Mandibolare",
-    price: "€ 400",
+    price: "€ 350",
     description: "Rimodellamento della linea mandibolare per un profilo più definito, strutturato e simmetrico.",
     image: baMandibolare,
   },
   {
-    name: "Biorivitalizzazione",
+    name: "Biorivitalizzazione Viso",
     price: "€ 250",
-    description: "Trattamento rigenerante che restituisce luminosità, elasticità e idratazione profonda alla pelle del viso e del collo.",
+    description: "Trattamento rigenerante che restituisce luminosità, elasticità e idratazione profonda alla pelle del viso.",
+    image: baBiorivitalizzazione,
+  },
+  {
+    name: "Biorivitalizzazione Viso + Collo",
+    price: "€ 400",
+    description: "Trattamento rigenerante completo per viso e collo, per una pelle luminosa, elastica e profondamente idratata.",
     image: baBiorivitalizzazione,
   },
   {
@@ -51,7 +81,7 @@ const allTreatments = [
   },
   {
     name: "Zigomi",
-    price: "€ 400",
+    price: "€ 390",
     description: "Volumizzazione degli zigomi con acido ialuronico per un volto più scolpito e proporzioni più armoniose.",
     image: baZigomi,
   },
@@ -63,62 +93,14 @@ const allTreatments = [
   },
   {
     name: "Filler Mento",
-    price: "€ 350",
+    price: "€ 290",
     description: "Proiezione e definizione del mento per un profilo bilanciato e un viso più proporzionato.",
     image: baMento,
   },
   {
-    name: "Ringiovanimento Viso",
-    price: "€ 500",
-    description: "Con o senza laser ablativo per una pelle visibilmente più giovane.",
-    image: baBiorivitalizzazione,
-  },
-  {
-    name: "Trattamento Macchie e Acne",
-    price: "€ 200",
-    description: "Protocolli mirati per ridurre discromie e imperfezioni.",
-    image: baBiorivitalizzazione,
-  },
-  {
-    name: "Radiofrequenza",
-    price: "€ 250",
-    description: "Rassodamento cutaneo profondo senza bisturi.",
-    image: baBiorivitalizzazione,
-  },
-  {
-    name: "Blefaroplastica",
-    price: "Da € 1.500",
-    description: "Chirurgica e non chirurgica per ringiovanire lo sguardo.",
-    image: baBiorivitalizzazione,
-  },
-  {
-    name: "Spectra Hollywood Peeling",
-    price: "€ 300",
-    description: "Peeling laser per una pelle luminosa come le star.",
-    image: baBiorivitalizzazione,
-  },
-  {
-    name: "Lifting Viso 4D",
-    price: "Da € 2.000",
-    description: "Tensore tridimensionale per un ringiovanimento globale.",
-    image: baBiorivitalizzazione,
-  },
-  {
-    name: "Fili di Trazione",
-    price: "Da € 800",
-    description: "Effetto lifting immediato senza chirurgia.",
-    image: baBiorivitalizzazione,
-  },
-  {
-    name: "Lipofiller",
-    price: "Da € 1.200",
-    description: "Rimodellamento con il proprio grasso autologo.",
-    image: baBiorivitalizzazione,
-  },
-  {
-    name: "Ultraformer",
-    price: "€ 500",
-    description: "Ultrasuoni focalizzati per lifting e rassodamento.",
+    name: "Prodotto Sgonfia/Drena Occhiaie",
+    price: "€ 100 a seduta",
+    description: "Trattamento drenante e sgonfiante specifico per la zona perioculare, per uno sguardo più luminoso e riposato.",
     image: baBiorivitalizzazione,
   },
 ];
@@ -218,6 +200,40 @@ const Trattamenti = () => {
             </p>
           </motion.div>
 
+          {/* Laser Alessandrite special card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <Link
+              to="/laser-alessandrite"
+              className="block border border-primary/30 rounded-2xl overflow-hidden bg-gradient-to-r from-card to-card hover:border-primary/50 transition-all duration-500 group"
+            >
+              <div className="p-6 md:p-8 flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                    <Sparkles size={22} className="text-primary" />
+                  </div>
+                  <div>
+                    <span className="font-display text-2xl md:text-3xl text-foreground group-hover:text-gold-gradient transition-colors">
+                      Laser Alessandrite
+                    </span>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Candela GentlePro — Epilazione laser medicale · Prova gratuita disponibile
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 shrink-0">
+                  <span className="hidden sm:block font-body text-sm text-primary font-medium">Da € 40</span>
+                  <ArrowRight size={20} className="text-primary group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* Regular treatments */}
           <div className="space-y-4">
             {allTreatments.map((t, i) => (
               <TreatmentItem key={t.name} treatment={t} index={i} />
