@@ -5,6 +5,7 @@ import logo from "@/assets/logo.png";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
+  { label: "Home", href: "/", isRoute: true },
   { label: "Chi Siamo", href: "/#about" },
   { label: "Trattamenti", href: "/trattamenti", isRoute: true },
   { label: "Le Nostre Sedi", href: "/#sedi" },
