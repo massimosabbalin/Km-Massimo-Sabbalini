@@ -119,7 +119,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 3.8 }}
-          className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] mb-6"
+          className="font-display text-4xl md:text-7xl lg:text-8xl leading-[1.1] md:leading-[0.95] mb-6"
         >
           <span className="text-foreground">La Bellezza è</span>
           <br />

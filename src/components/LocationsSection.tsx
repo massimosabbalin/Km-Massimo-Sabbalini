@@ -1,41 +1,36 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { MapPin, Phone, Clock } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 
 const locations = [
   {
     city: "Trento",
     address: "Via Roma 42, 38122 Trento (TN)",
-    phone: "+39 342 0560770",
-    hours: "Lun-Ven 9:00-18:00",
+    phone: "+39 329 6164667",
     mapQuery: "Via+Roma+42+Trento+TN",
   },
   {
     city: "Bolzano",
     address: "Piazza Walther 15, 39100 Bolzano (BZ)",
-    phone: "+39 342 0560770",
-    hours: "Mar-Gio 9:00-17:00",
+    phone: "+39 329 6164667",
     mapQuery: "Piazza+Walther+15+Bolzano+BZ",
   },
   {
     city: "Udine",
     address: "Via Galilei 42, 33010 Feletto U. (UD)",
-    phone: "+39 342 0560770",
-    hours: "Lun-Mer 10:00-18:00",
+    phone: "+39 329 6164667",
     mapQuery: "Via+Galilei+42+Feletto+Umberto+UD",
   },
   {
     city: "Saletto (PD)",
     address: "Via Vittorio Veneto 88, 35046 Saletto (PD)",
-    phone: "+39 334 2447375",
-    hours: "Lun-Ven 9:00-19:00",
-    mapQuery: "Via+Vittorio+Veneto+88+Saletto+PD",
+    phone: "+39 329 6164667",
+    mapQuery: "Via+Vittorio+Beneto+88+Saletto+PD",
   },
   {
     city: "Riva del Garda",
     address: "Viale Rovereto 12, 38066 Riva del Garda (TN)",
-    phone: "+39 342 0560770",
-    hours: "Ven 10:00-16:00",
+    phone: "+39 329 6164667",
     mapQuery: "Viale+Rovereto+12+Riva+del+Garda+TN",
   },
 ];
@@ -75,35 +70,38 @@ const LocationsSection = () => {
               <button
                 key={loc.city}
                 onClick={() => setActiveLocation(i)}
-                className={`w-full text-left p-6 rounded-2xl border transition-all duration-500 group ${
-                  activeLocation === i
-                    ? "border-primary/40 bg-secondary"
-                    : "border-border hover:border-primary/20"
-                }`}
+                className={`w-full text-left p-6 rounded-2xl border transition-all duration-500 group ${activeLocation === i
+                  ? "border-primary/40 bg-secondary"
+                  : "border-border hover:border-primary/20"
+                  }`}
               >
                 <div className="flex items-start justify-between">
                   <div>
-                    <h3 className={`font-display text-2xl mb-2 transition-colors ${
-                      activeLocation === i ? "text-gold-gradient" : "text-foreground"
-                    }`}>
+                    <h3 className={`font-display text-2xl mb-2 transition-colors ${activeLocation === i ? "text-gold-gradient" : "text-foreground"
+                      }`}>
                       {loc.city}
                     </h3>
-                    <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
+                    <a
+                      href={`https://www.google.com/maps/search/${loc.mapQuery}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-muted-foreground text-sm mb-1 hover:text-primary transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       <MapPin size={14} className="text-primary/60" />
                       {loc.address}
-                    </div>
-                    <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1">
+                    </a>
+                    <a
+                      href={`tel:${loc.phone.replace(/\s/g, "")}`}
+                      className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       <Phone size={14} className="text-primary/60" />
                       {loc.phone}
-                    </div>
-                    <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                      <Clock size={14} className="text-primary/60" />
-                      {loc.hours}
-                    </div>
+                    </a>
                   </div>
-                  <div className={`w-3 h-3 rounded-full mt-2 transition-colors ${
-                    activeLocation === i ? "bg-primary" : "bg-border"
-                  }`} />
+                  <div className={`w-3 h-3 rounded-full mt-2 transition-colors ${activeLocation === i ? "bg-primary" : "bg-border"
+                    }`} />
                 </div>
               </button>
             ))}
