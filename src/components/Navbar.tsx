@@ -81,16 +81,27 @@ const Navbar = () => {
             className="md:hidden bg-background/98 backdrop-blur-xl border-t border-border"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="font-body text-sm tracking-[0.15em] uppercase text-foreground/70 hover:text-primary transition-colors py-2"
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) =>
+                item.isRoute ? (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="font-body text-sm tracking-[0.15em] uppercase text-foreground/70 hover:text-primary transition-colors py-2"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className="font-body text-sm tracking-[0.15em] uppercase text-foreground/70 hover:text-primary transition-colors py-2"
+                  >
+                    {item.label}
+                  </a>
+                )
+              )}
               <a
                 href="#"
                 onClick={(e) => e.preventDefault()}
