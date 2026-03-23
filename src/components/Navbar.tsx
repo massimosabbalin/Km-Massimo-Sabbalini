@@ -8,6 +8,7 @@ const navItems = [
   { label: "Home", href: "/", isRoute: true },
   { label: "Chi Siamo", href: "/#about" },
   { label: "Trattamenti", href: "/trattamenti", isRoute: true },
+  { label: "Risultati", href: "/risultati", isRoute: true },
   { label: "Le Nostre Sedi", href: "/#sedi" },
 ];
 
@@ -57,7 +58,9 @@ const Navbar = () => {
             )
           )}
           <a
-            href="/#contatti"
+            href="https://wa.me/393296164667?text=Buongiorno,%20vorrei%20delle%20info%20sui%20vostri%20trattamenti%20"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-gold-gradient text-primary-foreground px-6 py-2.5 rounded-full text-xs tracking-[0.15em] uppercase font-medium hover:opacity-90 transition-opacity"
           >
             Prenota Ora
@@ -124,7 +127,9 @@ const Navbar = () => {
                 className="mt-8"
               >
                 <a
-                  href="/#contatti"
+                  href="https://wa.me/393296164667?text=Buongiorno,%20vorrei%20delle%20info%20sui%20vostri%20trattamenti%20"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
                   className="bg-gold-gradient text-primary-foreground px-12 py-4 rounded-full text-xs tracking-[0.2em] uppercase font-medium shadow-xl shadow-primary/20"
                 >

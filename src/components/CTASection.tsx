@@ -31,7 +31,7 @@ const CTASection = () => {
           </p>
 
           <a
-            href="https://wa.me/393296164667"
+            href="https://wa.me/393296164667?text=Buongiorno,%20vorrei%20delle%20info%20sui%20vostri%20trattamenti%20"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-gold-gradient text-primary-foreground px-12 py-5 rounded-full text-sm tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20"

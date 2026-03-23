@@ -254,8 +254,9 @@ const Trattamenti = () => {
               Contattaci per un appuntamento personalizzato
             </p>
             <a
-              href="#"
-              onClick={(e) => e.preventDefault()}
+              href="https://wa.me/393296164667?text=Buongiorno,%20vorrei%20delle%20info%20sui%20vostri%20trattamenti%20"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-gold-gradient text-primary-foreground px-8 py-3.5 rounded-full text-xs tracking-[0.15em] uppercase font-medium hover:opacity-90 transition-opacity"
             >
               Prenota Ora

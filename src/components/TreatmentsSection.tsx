@@ -3,31 +3,30 @@ import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import baFillerLabbra from "@/assets/ba-filler-labbra.jpg";
-import baMandibolare from "@/assets/ba-mandibolare.jpg";
-import baBiorivitalizzazione from "@/assets/ba-biorivitalizzazione.jpg";
-import baRinofiller from "@/assets/ba-rinofiller.jpg";
+import laserHero from "@/assets/laser-alessandrite-hero.png";
 
 const featuredTreatments = [
   {
+    name: "Laser Alessandrite",
+    description: "Epilazione definitiva con tecnologia medica Candela GentlePro per risultati eccellenti.",
+    image: laserHero,
+    href: "/laser-alessandrite",
+    hideBadges: true,
+  },
+  {
     name: "Filler Labbra",
     description: "Trattamento con acido ialuronico per labbra più piene, definite e naturali.",
-    image: baFillerLabbra,
+    image: "/risultati/9.png",
   },
   {
     name: "Botox Viso",
     description: "Riduce le rughe d'espressione per un aspetto più fresco e rilassato.",
-    image: baMandibolare,
-  },
-  {
-    name: "Biorivitalizzazione",
-    description: "Trattamento rigenerante che restituisce luminosità e idratazione profonda.",
-    image: baBiorivitalizzazione,
+    image: "/risultati/11.png",
   },
   {
     name: "Rinofiller",
     description: "Rimodellamento non chirurgico del naso con filler di ultima generazione.",
-    image: baRinofiller,
+    image: "/risultati/19.png",
   },
 ];
 
@@ -57,36 +56,47 @@ const TreatmentsSection = () => {
 
         {/* 4 Featured treatment cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {featuredTreatments.map((t, i) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 * i }}
-              className="group rounded-2xl border border-border overflow-hidden bg-card hover:border-primary/30 transition-all duration-500"
-            >
-              <div className="relative aspect-[16/9] overflow-hidden">
-                <img
-                  src={t.image}
-                  alt={`Prima e dopo ${t.name}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-                <div className="absolute bottom-3 left-4 right-4 flex justify-between">
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-foreground/60 bg-background/60 backdrop-blur-sm px-3 py-1 rounded-full">Prima</span>
-                  <span className="text-[10px] tracking-[0.2em] uppercase text-primary bg-background/60 backdrop-blur-sm px-3 py-1 rounded-full">Dopo</span>
+          {featuredTreatments.map((t, i) => {
+            const Content = (
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.1 * i }}
+                className="group h-full rounded-2xl border border-border overflow-hidden bg-card hover:border-primary/30 transition-all duration-500 shadow-sm hover:shadow-md cursor-pointer"
+              >
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <img
+                    src={t.image}
+                    alt={`Prima e dopo ${t.name}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
+                  {!t.hideBadges && (
+                    <div className="absolute bottom-3 left-4 right-4 flex justify-between">
+                      <span className="text-[10px] tracking-[0.2em] uppercase text-foreground/60 bg-background/60 backdrop-blur-sm px-3 py-1 rounded-full">Prima</span>
+                      <span className="text-[10px] tracking-[0.2em] uppercase text-primary bg-background/60 backdrop-blur-sm px-3 py-1 rounded-full">Dopo</span>
+                    </div>
+                  )}
                 </div>
-              </div>
-              <div className="p-5">
-                <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-gold-gradient transition-colors">
-                  {t.name}
-                </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  {t.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                <div className="p-5">
+                  <h3 className="font-display text-xl text-foreground mb-2 group-hover:text-gold-gradient transition-colors">
+                    {t.name}
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {t.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+
+            return t.href ? (
+              <Link key={t.name} to={t.href}>
+                {Content}
+              </Link>
+            ) : (
+              <div key={t.name}>{Content}</div>
+            );
+          })}
         </div>
 
         {/* CTA Button */}

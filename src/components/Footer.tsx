@@ -24,7 +24,7 @@ const Footer = () => {
                 { label: "Chi Siamo", href: "/#about" },
                 { label: "Trattamenti", href: "/trattamenti" },
                 { label: "Le Nostre Sedi", href: "/#sedi" },
-                { label: "Contatti", href: "/#contatti" },
+                { label: "Contatti", href: "https://wa.me/393296164667?text=Buongiorno,%20vorrei%20delle%20info%20sui%20vostri%20trattamenti%20" },
               ].map((item) => (
                 <a
                   key={item.label}
@@ -71,7 +71,7 @@ const Footer = () => {
                 </button>
               </div>
               <a
-                href="https://wa.me/393296164667"
+                href="https://wa.me/393296164667?text=Buongiorno,%20vorrei%20delle%20info%20sui%20vostri%20trattamenti%20"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block text-primary hover:text-foreground transition-colors"

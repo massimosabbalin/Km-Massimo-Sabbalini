@@ -8,6 +8,7 @@ import Trattamenti from "./pages/Trattamenti";
 import LaserAlessandrite from "./pages/LaserAlessandrite";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
+import Risultati from "./pages/Risultati";
 import NotFound from "./pages/NotFound";
 
 import ScrollToTop from "./components/ScrollToTop";
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/laser-alessandrite" element={<LaserAlessandrite />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />
+          <Route path="/risultati" element={<Risultati />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
