@@ -249,7 +249,7 @@ export const blogPosts: BlogPost[] = [
     category: { IT: "Trattamenti Corpo", DE: "Körperbehandlungen" },
     date: "18 Aprile 2024",
     readTime: "3 min",
-    image: "/blog/liposcultura.png",
+    image: "/blog/vitaminca c.png",
     content: {
       IT: `
         <p>La <strong>Vitamina C Epiteliale</strong> non è solo un potente antiossidante, ma uno degli strumenti più innovativi nella lotta contro le adiposità localizzate. Questo trattamento medico rappresenta una soluzione sicura ed efficace per "sciogliere" i depositi di grasso resistenti a dieta ed esercizio fisico.</p>
