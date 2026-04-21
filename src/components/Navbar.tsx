@@ -6,9 +6,9 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { label: "Home", href: "/", isRoute: true },
-  { label: "Chi Siamo", href: "/#about" },
   { label: "Trattamenti", href: "/trattamenti", isRoute: true },
-  { label: "Risultati", href: "/risultati", isRoute: true },
+  { label: "Laser Alessandrite", href: "/laser-alessandrite", isRoute: true },
+  { label: "Blog", href: "/blog", isRoute: true },
   { label: "Le Nostre Sedi", href: "/#sedi" },
 ];
 
