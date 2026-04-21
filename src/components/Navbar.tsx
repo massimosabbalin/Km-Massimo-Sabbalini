@@ -100,6 +100,43 @@ const LanguageSelector = ({ mobile = false, setMobileOpen }: { mobile?: boolean;
   );
 };
 
+const MobileLanguageSwitcher = () => {
+  const { language, setLanguage } = useLanguage();
+  
+  const languages = [
+    { code: "IT", flag: <FlagIt /> },
+    { code: "DE", flag: <FlagDe /> },
+  ];
+
+  return (
+    <div className="fixed bottom-6 left-6 z-[100] md:hidden">
+      <div className="flex bg-background/40 backdrop-blur-xl border border-white/10 rounded-full p-1.5 shadow-2xl overflow-hidden shadow-black/20">
+        {languages.map((lang) => (
+          <button
+            key={lang.code}
+            onClick={() => setLanguage(lang.code as "IT" | "DE")}
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all duration-300 ${
+              language === lang.code 
+                ? "bg-white/10 text-white shadow-inner" 
+                : "text-muted-foreground hover:text-white"
+            }`}
+          >
+            <motion.div
+              whileTap={{ scale: 0.9 }}
+              className="shrink-0"
+            >
+              {lang.flag}
+            </motion.div>
+            <span className="font-body text-[10px] tracking-widest font-bold uppercase">
+              {lang.code}
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -227,13 +264,7 @@ const Navbar = () => {
                 ))}
               </div>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="w-full mt-10"
-              >
-                <LanguageSelector mobile setMobileOpen={setMobileOpen} />
-              </motion.div>
+
               
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -261,6 +292,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <MobileLanguageSwitcher />
     </motion.header>
   );
 };
