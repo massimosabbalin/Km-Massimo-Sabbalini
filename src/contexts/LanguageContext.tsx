@@ -57,10 +57,18 @@ const translations: Record<Language, any> = {
       treatments: "Trattamenti",
       laser: "Laser Alessandrite",
       blog: "Blog",
+      results: "Risultati",
       locations: "Le Nostre Sedi",
       contact: "Contatti",
       book: "Prenota Ora",
-      whatsappMessage: "Buongiorno, vorrei richiedere informazioni sui vostri trattamenti."
+      whatsappMessage: "Buongiorno Dott. Sabbalini, vorrei ricevere informazioni riguardo i trattamenti e prenotare una consulenza."
+    },
+    results: {
+      subtitle: "Prima e Dopo",
+      title: "Risultati",
+      titleAccent: "Reali",
+      desc: "Una selezione di casi clinici reali per mostrare l'armonia e la naturalezza dei risultati ottenibili presso la Km Clinic.",
+      enlarge: "Clicca per ingrandire"
     },
     hero: {
       subtitle: "Medicina & Chirurgia Estetica",
@@ -256,10 +264,18 @@ const translations: Record<Language, any> = {
       treatments: "Behandlungen",
       laser: "Alexandrit Laser",
       blog: "Blog",
+      results: "Ergebnisse",
       locations: "Unsere Standorte",
       contact: "Kontakt",
       book: "Jetzt Buchen",
-      whatsappMessage: "Guten Tag, ich möchte Informationen zu Ihren Behandlungen anfordern."
+      whatsappMessage: "Guten Tag Dr. Sabbalini, ich möchte Informationen zu Behandlungen erhalten und einen Termin vereinbaren."
+    },
+    results: {
+      subtitle: "Vorher und Nachher",
+      title: "Echte",
+      titleAccent: "Ergebnisse",
+      desc: "Eine Auswahl an echten klinischen Fällen, um die Harmonie e Natürlichkeit der in der Km Clinic erzielbaren Ergebnisse zu zeigen.",
+      enlarge: "Zum Vergrößern anklicken"
     },
     hero: {
       subtitle: "Ästhetische Medizin & Chirurgie",

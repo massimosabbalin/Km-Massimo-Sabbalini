@@ -7,6 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const resultsData = [
   { id: 1, src: '/risultati/1.png', alt: 'Trattamento occhiaie prima e dopo - Risultato naturale e luminoso Dott. Massimo Sabbalini', title: 'Correzione Occhiaie' },
   { id: 2, src: '/risultati/2.png', alt: 'Rinofiller profilo sinistro prima e dopo - Armonizzazione del naso senza chirurgia Dott. Massimo Sabbalini', title: 'Rinofiller Profilo Sx' },
+  { id: 3, src: '/risultati/3.png', alt: 'Filler labbra prima e dopo - Definizione naturale Dott. Massimo Sabbalini', title: 'Filler Labbra Definizione' },
   { id: 4, src: '/risultati/4.png', alt: 'Filler labbra prima e dopo - Volume naturale e definizione Dott. Massimo Sabbalini', title: 'Filler Labbra Naturale' },
   { id: 5, src: '/risultati/5.png', alt: 'Filler labbra prima e dopo - Idratazione e volume Dott. Massimo Sabbalini', title: 'Filler Labbra Idratazione' },
   { id: 6, src: '/risultati/6.png', alt: 'Filler labbra prima e dopo - Effetto rimpolpante naturale', title: 'Filler Labbra Rimpolpante' },
@@ -19,9 +20,9 @@ const resultsData = [
   { id: 13, src: '/risultati/13.png', alt: 'Rinofiller e armonizzazione volto donna profilo prima e dopo Dott. Massimo Sabbalini', title: 'Armonizzazione Profilo' },
   { id: 14, src: '/risultati/14.png', alt: 'Rinofiller uomo profilo prima e dopo - Risultato maschile e naturale Dott. Massimo Sabbalini', title: 'Rinofiller Uomo' },
   { id: 15, src: '/risultati/15.png', alt: 'Trattamento occhiaie e sguardo stanco prima e dopo Dott. Massimo Sabbalini', title: 'Correzione Sguardo' },
-  { id: 16, src: '/risultati/16.png', alt: 'Rinofiller correzione gibbo basale prima e dopo Dott. Massimo Sabbalini', title: 'Correzione Gibbo' },
   { id: 17, src: '/risultati/17.png', alt: 'Trattamento ringiovanimento perioculare prima e dopo Dott. Massimo Sabbalini', title: 'Ringiovanimento Occhi' },
   { id: 18, src: '/risultati/18.png', alt: 'Rinofiller uomo correzione profilo nasale prima e dopo Dott. Massimo Sabbalini', title: 'Profilo Nasale Uomo' },
+  { id: 19, src: '/risultati/19.png', alt: 'Filler labbra e armonizzazione profilo prima e dopo Dott. Massimo Sabbalini', title: 'Armonizzazione Profilo Labbra' },
 ];
 
 const Risultati = () => {

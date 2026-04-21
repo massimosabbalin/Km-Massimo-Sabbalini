@@ -110,6 +110,7 @@ const Navbar = () => {
   const navItems = [
     { label: t("nav.home"), href: "/", isRoute: true },
     { label: t("nav.treatments"), href: "/trattamenti", isRoute: true },
+    { label: t("nav.results"), href: "/risultati", isRoute: true },
     { label: t("nav.laser"), href: "/laser-alessandrite", isRoute: true },
     { label: t("nav.blog"), href: "/blog", isRoute: true },
     { label: t("nav.locations"), href: "/#sedi" },
