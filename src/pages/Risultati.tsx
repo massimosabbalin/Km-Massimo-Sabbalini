@@ -24,6 +24,11 @@ const resultsData = [
   { id: 18, src: '/risultati/18.png', alt: 'Rinofiller uomo correzione profilo nasale prima e dopo Dott. Massimo Sabbalini', title: 'Profilo Nasale Uomo' },
   { id: 19, src: '/risultati/19.png', alt: 'Filler labbra e armonizzazione profilo prima e dopo Dott. Massimo Sabbalini', title: 'Armonizzazione Profilo Labbra' },
   { id: 20, src: '/risultati/20.png', alt: 'Trattamento medicina estetica prima e dopo Dott. Massimo Sabbalini', title: 'Risultato Trattamento' },
+  { id: 21, src: '/risultati/21.png', alt: 'Trattamento estetica avanzata prima e dopo Dott. Massimo Sabbalini', title: 'Medicina Estetica' },
+  { id: 22, src: '/risultati/22.png', alt: 'Risultato clinico prima e dopo Dott. Massimo Sabbalini', title: 'Armonia Viso' },
+  { id: 23, src: '/risultati/23.png', alt: 'Trattamento viso prima e dopo Dott. Massimo Sabbalini', title: 'Bellezza Naturale' },
+  { id: 24, src: '/risultati/24.png', alt: 'Definizione profilo prima e dopo Dott. Massimo Sabbalini', title: 'Scolpitura Profilo' },
+  { id: 25, src: '/risultati/25.png', alt: 'Ringiovanimento naturale prima e dopo Dott. Massimo Sabbalini', title: 'Ringiovanimento' },
 ];
 
 const Risultati = () => {
