@@ -71,6 +71,20 @@ export default {
       fontFamily: {
         display: ["Cormorant Garamond", "serif"],
         body: ["Montserrat", "sans-serif"],
+        "display-lg": ["Noto Serif", "serif"],
+        "headline-xl": ["Noto Serif", "serif"],
+        "headline-md": ["Noto Serif", "serif"],
+        "body-lg": ["Manrope", "sans-serif"],
+        "body-md": ["Manrope", "sans-serif"],
+        "label-caps": ["Manrope", "sans-serif"],
+      },
+      fontSize: {
+        "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400" }],
+        "headline-xl": ["48px", { lineHeight: "1.2", fontWeight: "400" }],
+        "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "400" }],
+        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+        "label-caps": ["12px", { lineHeight: "1.0", letterSpacing: "0.15em", fontWeight: "600" }],
       },
       keyframes: {
         "accordion-down": {

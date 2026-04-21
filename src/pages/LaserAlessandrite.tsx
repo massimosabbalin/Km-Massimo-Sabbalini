@@ -1,173 +1,214 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Sparkles, Check } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const zones = [
-  {
-    name: "Zona Piccola",
-    areas: "Attaccatura capelli, guance, baffetto, orecchie, mento, mani, piedi, basette",
-    prices: [
-      { sessions: "1 Seduta", price: "€ 40" },
-      { sessions: "2 Sedute", price: "€ 70" },
-      { sessions: "4 Sedute", price: "€ 125" },
-    ],
-  },
-  {
-    name: "Zona Media",
-    areas: "Spalle, ascelle, glutei, inguine, ½ braccio, viso totale, addome",
-    prices: [
-      { sessions: "1 Seduta", price: "€ 95" },
-      { sessions: "2 Sedute", price: "€ 160" },
-      { sessions: "4 Sedute", price: "€ 310" },
-    ],
-  },
-  {
-    name: "Zona Grande",
-    areas: "Coscia, ½ gamba, torace, schiena, braccio intero",
-    prices: [
-      { sessions: "1 Seduta", price: "€ 150" },
-      { sessions: "2 Sedute", price: "€ 270" },
-      { sessions: "4 Sedute", price: "€ 520" },
-    ],
-  },
-];
-
-const features = [
-  "Tecnologia Candela GentlePro di ultima generazione",
-  "Laser Alessandrite medicale certificato",
-  "Adatto a tutti i fototipi",
-  "Trattamento rapido e poco invasivo",
-  "Risultati duraturi fin dalle prime sedute",
-  "Prova gratuita disponibile",
-];
-
 const LaserAlessandrite = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-[#131313] text-[#e5e2e1] font-body-md overflow-x-hidden">
       <Navbar />
 
-      <section className="pt-32 pb-20">
-        <div className="max-w-4xl mx-auto px-6">
-          <Link
-            to="/trattamenti"
-            className="inline-flex items-center gap-2 text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-primary transition-colors mb-12"
-          >
-            <ArrowLeft size={14} />
-            Tutti i Trattamenti
-          </Link>
-
-          {/* Hero */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-16"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                <Sparkles size={20} className="text-primary" />
-              </div>
-              <p className="font-body text-xs tracking-[0.4em] uppercase text-primary">
-                Epilazione Laser Medicale
-              </p>
-            </div>
-            <h1 className="font-display text-4xl md:text-6xl text-foreground mb-4">
-              Laser <span className="text-gold-gradient italic">Alessandrite</span>
-            </h1>
-            <div className="w-16 h-[1px] bg-gold-gradient" />
-            <p className="mt-6 text-base text-muted-foreground max-w-2xl leading-relaxed">
-              Epilazione laser definitiva con tecnologia <strong className="text-foreground">Candela GentlePro</strong>, il gold standard mondiale per l'epilazione medicale. Trattamento sicuro, efficace e confortevole per tutte le zone del corpo.
-            </p>
-          </motion.div>
-
-          {/* Features */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-16 grid sm:grid-cols-2 gap-3"
-          >
-            {features.map((f, i) => (
-              <div key={i} className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border">
-                <Check size={16} className="text-primary shrink-0" />
-                <span className="text-sm text-foreground/80">{f}</span>
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Price zones */}
-          <div className="space-y-6">
-            {zones.map((zone, zi) => (
-              <motion.div
-                key={zone.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 * zi + 0.3 }}
-                className="border border-border rounded-2xl overflow-hidden bg-card"
-              >
-                <div className="p-6 md:p-8">
-                  <h2 className="font-display text-2xl md:text-3xl text-foreground mb-2">
-                    {zone.name}
-                  </h2>
-                  <p className="text-xs text-muted-foreground mb-6">
-                    A scelta tra: {zone.areas}
-                  </p>
-
-                  <div className="space-y-3">
-                    {zone.prices.map((p) => (
-                      <div
-                        key={p.sessions}
-                        className="flex items-center justify-between py-3 px-4 rounded-xl bg-background/50 border border-border/50"
-                      >
-                        <span className="font-body text-sm text-foreground/80">{p.sessions}</span>
-                        <span className="font-display text-xl md:text-2xl text-primary font-medium">{p.price}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Prova gratuita banner */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="mt-12 p-8 md:p-10 rounded-2xl bg-gradient-to-br from-primary/10 to-card border border-primary/20 text-center"
-          >
-            <Sparkles size={28} className="text-primary mx-auto mb-4" />
-            <p className="font-display text-3xl md:text-4xl text-foreground mb-3">
-              Prova <span className="text-gold-gradient italic">Gratuita</span>
-            </p>
-            <p className="text-sm text-muted-foreground mb-8 max-w-md mx-auto">
-              Prenota la tua prova gratuita per scoprire i benefici del Laser Alessandrite Candela GentlePro
-            </p>
-            <a
-              href="https://wa.me/393296164667?text=Buongiorno,%20vorrei%20delle%20info%20sui%20vostri%20trattamenti%20"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-gold-gradient text-primary-foreground px-10 py-4 rounded-full text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
+      {/* Hero Section */}
+      <header className="relative min-h-[80vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            className="w-full h-full object-cover opacity-40 grayscale-[20%]" 
+            alt="luxury medical clinic interior" 
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKIuioTR-5AnJ1LqXd4tbNcaZfONuwl7Pvn_KQgs-4zHr2n3M495sNO_nOR3zTeYk7uUK1wtT6xWckgMAblRfNJbaBD1Tn5UowK1y0YFtPIc8TmYQ_gG7LeR4iC2Vtgy05YQ8MpPLgTxbjy22hrAhecSXQ5QtrPRNfNFg2E4d5mnnQDk2DkdKHsc1iEZl-YI3c8cYWKnIMHA90lYQHwNx9MOTn8vwclfJ3oLj1a47-Yj0jwqQFn_6nkqhJKsHHntBbNrZs_l1_nJ-5" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-[#131313] via-[#131313]/60 to-transparent"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-32 pb-20 md:pt-20">
+          <div className="max-w-3xl">
+            <Link
+              to="/trattamenti"
+              className="inline-flex items-center gap-2 text-[10px] md:text-xs tracking-[0.15em] uppercase text-primary mb-6 md:mb-8 hover:opacity-80 transition-opacity"
             >
-              Prenota la Prova Gratuita
-            </a>
-          </motion.div>
+              <ArrowLeft size={12} />
+              Tutti i Trattamenti
+            </Link>
+            <motion.span 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="font-label-caps text-[10px] md:text-xs text-primary mb-4 md:mb-6 block"
+            >
+              DOTT. MASSIMO SABBALINI — MEDICINA E CHIRURGIA ESTETICA
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-[#e5e2e1] mb-6 md:mb-8 leading-tight"
+            >
+              Il Gold Standard dell'Epilazione Medica: <span className="text-[#d4af37] italic">Laser Alessandrite</span>
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="font-body-lg text-sm md:text-body-lg text-[#d0c5af] mb-8 md:mb-10 max-w-xl leading-relaxed"
+            >
+              L'eccellenza tecnologica di Candela GentlePro per risultati definitivi sulla pelle chiara. Precisione clinica e comfort superiore.
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 md:gap-6"
+            >
+              <a className="bg-primary text-[#3c2f00] px-8 md:px-10 py-4 font-label-caps text-xs md:text-sm text-center hover:scale-105 hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all" href="#pricing">
+                SCOPRI I PREZZI
+              </a>
+              <a className="border border-[#4d4635] text-[#e5e2e1] px-8 md:px-10 py-4 font-label-caps text-xs md:text-sm text-center hover:bg-[#2a2a2a] transition-all" href="#technology">
+                TECNOLOGIA
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </header>
 
-          {/* Info */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="mt-12 text-center"
-          >
-            <p className="text-xs text-muted-foreground/60">
-              Via Cassa di Risparmio 8, Bolzano · Info e prenotazioni: 329 616 4667 — Kristina
-            </p>
-          </motion.div>
+      {/* Section 1: Tecnologia Candela */}
+      <section className="py-20 md:py-32 px-6 md:px-8 max-w-7xl mx-auto" id="technology">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div className="relative group order-2 md:order-1">
+            <div className="absolute -inset-2 md:-inset-4 border border-[#2A2A2A] translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
+            <img 
+              className="relative z-10 w-full h-[350px] md:h-[600px] object-cover grayscale-[30%]" 
+              alt="professional medical laser device" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQjX1x53vFAL-fVL_avzOmjVjmwK2LkcMRMvTbap8MPUiLbtXk17uA7flfLtv_vsVbfGGAzVrrXWMRLm_yqJbjLhcz5fBb5O0ExgxhBIMWZB2enD3XfKTqBB_89cNuiiEQ0-hZK-vhh46XRwJw2hqGgJ0IWhyQKKgvPYiLyqbr5QH2_AGG-Ac9bANhIPN2lTsriO8wltyZvSrWjT8g32dlFcfW2A6y3mldcJMgC4OjZrpp1wQVOKhgOFH_dmjU1ZJJHIP_PrmkLFLE" 
+            />
+          </div>
+          <div className="order-1 md:order-2">
+            <span className="font-label-caps text-[#d4af37] mb-3 md:mb-4 block uppercase tracking-widest text-[10px] md:text-xs">Medical Precision</span>
+            <h2 className="font-headline-xl text-3xl md:text-headline-xl text-[#e5e2e1] mb-6 md:mb-8">Tecnologia Candela GentlePro</h2>
+            <div className="space-y-4 md:space-y-6 font-body-lg text-sm md:text-body-lg text-[#d0c5af] leading-relaxed">
+              <p>
+                Il Laser Alessandrite di Candela rappresenta l'apice dell'innovazione medica nel campo dell'epilazione. A differenza dei sistemi a diodo commerciali, la lunghezza d'onda di 755nm è specificamente ottimizzata per il massimo assorbimento della melanina.
+              </p>
+              <p>
+                Questa tecnologia è il trattamento d'elezione per i fototipi chiari, garantendo una rimozione dei peli più rapida e profonda, agendo direttamente sul bulbo pilifero senza danneggiare i tessuti circostanti.
+              </p>
+              <ul className="space-y-3 md:space-y-4 mt-6 md:mt-8">
+                {[
+                  "Efficacia superiore su peli sottili e chiari",
+                  "Approvato FDA per la sicurezza clinica",
+                  "Riduzione permanente dei peli in meno sedute"
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-3 md:gap-4">
+                    <span className="material-symbols-outlined text-[#d4af37] text-xl">check_circle</span>
+                    <span className="text-sm md:text-base">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* Section 2: Perché scegliere l'Alessandrite? */}
+      <section className="py-20 md:py-32 bg-[#0e0e0e]" id="benefits">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 text-center">
+          <div className="mb-12 md:mb-20">
+            <h2 className="font-headline-xl text-3xl md:text-headline-xl text-[#e5e2e1] mb-4">Perché scegliere l'Alessandrite?</h2>
+            <div className="w-16 md:w-24 h-px bg-[#f2ca50] mx-auto"></div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            {[
+              { icon: "bolt", title: "Massima Efficacia", desc: "Risultati visibili fin dalla prima seduta, riducendo drasticamente il numero totale." },
+              { icon: "ac_unit", title: "Comfort", desc: "Sistema di raffreddamento criogenico DCD™ integrato per un'esperienza quasi indolore." },
+              { icon: "verified_user", title: "Sicurezza", desc: "Protocolli medici rigorosi e supervisione costante dello specialista." },
+              { icon: "target", title: "Precisione", desc: "Trattamento mirato che non interferisce con la pelle circostante." }
+            ].map((benefit, idx) => (
+              <div key={idx} className="bg-[#131313] p-8 md:p-10 border border-[#2a2a2a] hover:border-[#f2ca50]/30 transition-all duration-500 gold-shimmer group text-left sm:text-center">
+                <div className="w-12 h-12 rounded-full border border-[#d4af37] flex items-center justify-center mb-6 mx-auto sm:mx-auto group-hover:scale-110 transition-transform">
+                  <span className="material-symbols-outlined text-[#d4af37]">{benefit.icon}</span>
+                </div>
+                <h3 className="font-headline-md text-[#e5e2e1] mb-3 text-xl md:text-2xl">{benefit.title}</h3>
+                <p className="font-body-md text-xs md:text-sm text-[#d0c5af] leading-relaxed">{benefit.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Come funziona Step by Step */}
+      <section className="py-20 md:py-32 px-6 md:px-8 max-w-7xl mx-auto" id="procedure">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20">
+          <div>
+            <h2 className="font-headline-xl text-3xl md:text-headline-xl text-[#e5e2e1] mb-8 md:mb-12">Il Percorso Clinico</h2>
+            <div className="space-y-10 md:space-y-16">
+              {[
+                { step: "01", title: "Consulenza Iniziale", desc: "Analisi del fototipo e della tipologia di pelo per calibrare i parametri del laser." },
+                { step: "02", title: "Preparazione e Test", desc: "Detersione della zona e test spot per assicurare la massima tollerabilità cutanea." },
+                { step: "03", title: "La Seduta", desc: "Applicazione del laser con impulsi precisi assistiti dal raffreddamento criogenico." },
+                { step: "04", title: "Post-Trattamento", desc: "Applicazione di lozioni lenitive e pianificazione del follow-up personalizzato." }
+              ].map((item, idx) => (
+                <div key={idx} className="flex gap-6 md:gap-8 group">
+                  <div className="flex-shrink-0 text-[#d4af37] font-serif text-3xl md:text-4xl opacity-50 group-hover:opacity-100 transition-opacity">{item.step}</div>
+                  <div>
+                    <h4 className="font-headline-md text-[#e5e2e1] text-lg md:text-xl mb-2">{item.title}</h4>
+                    <p className="font-body-md text-xs md:text-sm text-[#d0c5af] leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="relative flex items-center justify-center mt-10 md:mt-0">
+            <div className="w-full h-full border border-[#2a2a2a] absolute inset-0 rotate-2 scale-95 md:rotate-3"></div>
+            <img 
+              className="w-full h-[350px] md:h-[700px] object-cover relative z-10 rounded-sm" 
+              alt="aesthetic doctor consulting" 
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZSHKSskDBP8cqHfA9Vl4Ej1eSGa3h62aLNDUZSzUks8luS2xQcuc2JXLP4afBHTbQDXzc7YeXGWoLfagf0bqzqphqEbgviRyLi_ViFS3PKXrzPu1Uichy5kKoVcjsAMez-Lk5LqGxL0T7c15iClXng3vBwbAuh8I3Ztl0PLVyyFton79YGgiHY9M7KVIlaXVG5VXkRTKF6ipLTr5AlzesaYw4h7rQGJfKb1vyb8-qGdwD1-66M1IgL6VgqqsA0jyEoVj6Srm_z8do" 
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Listino Prezzi */}
+      <section className="py-20 md:py-32 bg-[#1b1b1c]" id="pricing">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="text-center mb-12 md:mb-20">
+            <span className="font-label-caps text-[#d4af37] mb-3 block tracking-widest uppercase text-[10px] md:text-xs">Investimento nella tua pelle</span>
+            <h2 className="font-headline-xl text-3xl md:text-headline-xl text-[#e5e2e1] mb-4">Listino Trattamenti</h2>
+            <p className="font-body-md text-sm md:text-base text-[#d0c5af]">Protocolli personalizzati basati su eccellenza medica.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#2a2a2a] border border-[#2a2a2a]">
+            {[
+              { 
+                name: "Zona Piccola", 
+                desc: "Viso, mani, orecchie o piccole aree specifiche.", 
+                prices: [{ s: "1 seduta", p: "€40" }, { s: "2 sedute", p: "€70" }, { s: "4 sedute", p: "€125", highlight: true }] 
+              },
+              { 
+                name: "Zona Media", 
+                desc: "Ascelle, inguine parziale, avambracci o collo.", 
+                prices: [{ s: "1 seduta", p: "€95" }, { s: "2 sedute", p: "€160" }, { s: "4 sedute", p: "€310", highlight: true }] 
+              },
+              { 
+                name: "Zona Grande", 
+                desc: "Gambe intere, braccia complete, schiena o petto.", 
+                prices: [{ s: "1 seduta", p: "€150" }, { s: "2 sedute", p: "€270" }, { s: "4 sedute", p: "€520", highlight: true }] 
+              }
+            ].map((zone, idx) => (
+              <div key={idx} className="bg-[#131313] p-8 md:p-12 hover:bg-[#202020] transition-colors duration-500">
+                <h3 className="font-headline-md text-xl md:text-2xl text-[#e5e2e1] mb-6 md:mb-8">{zone.name}</h3>
+                <p className="font-body-md text-xs md:text-sm text-[#d0c5af] mb-10 md:min-h-[48px] leading-relaxed">{zone.desc}</p>
+                <div className="space-y-4 md:space-y-6">
+                  {zone.prices.map((price, pidx) => (
+                    <div key={pidx} className={`flex justify-between items-center pb-4 border-b border-[#2a2a2a] ${price.highlight ? 'text-[#f2ca50]' : ''}`}>
+                      <span className="font-label-caps uppercase tracking-wider text-[10px] md:text-xs">{price.s}</span>
+                      <span className="font-display text-xl md:text-2xl font-medium">{price.p}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
 
       <Footer />
     </main>

@@ -90,6 +90,12 @@
   .border-gold {
     border-color: hsl(40 60% 50% / 0.3);
   }
+  .gold-shimmer {
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  }
+  .text-shadow-elegant {
+    text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  }
 }
 
 /* Scrollbar styling */
