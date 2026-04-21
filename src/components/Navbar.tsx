@@ -102,36 +102,73 @@ const LanguageSelector = ({ mobile = false, setMobileOpen }: { mobile?: boolean;
 
 const MobileLanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
   
   const languages = [
-    { code: "IT", flag: <FlagIt /> },
-    { code: "DE", flag: <FlagDe /> },
+    { code: "IT", label: "Italiano", flag: <FlagIt /> },
+    { code: "DE", label: "Deutsch", flag: <FlagDe /> },
   ];
+
+  const currentLang = languages.find((l) => l.code === language) || languages[0];
 
   return (
     <div className="fixed bottom-6 left-6 z-[100] md:hidden">
-      <div className="flex bg-background/40 backdrop-blur-xl border border-white/10 rounded-full p-1.5 shadow-2xl overflow-hidden shadow-black/20">
-        {languages.map((lang) => (
-          <button
-            key={lang.code}
-            onClick={() => setLanguage(lang.code as "IT" | "DE")}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all duration-300 ${
-              language === lang.code 
-                ? "bg-white/10 text-white shadow-inner" 
-                : "text-muted-foreground hover:text-white"
-            }`}
-          >
+      <div className="relative">
+        <AnimatePresence>
+          {isOpen && (
             <motion.div
-              whileTap={{ scale: 0.9 }}
-              className="shrink-0"
+              initial={{ opacity: 0, y: 10, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.9 }}
+              className="absolute bottom-full left-0 mb-3 w-32 bg-background/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden p-1"
             >
-              {lang.flag}
+              {languages.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => {
+                    setLanguage(lang.code as "IT" | "DE");
+                    setIsOpen(false);
+                  }}
+                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-xl text-left transition-colors ${
+                    language === lang.code 
+                      ? "bg-primary/10 text-primary" 
+                      : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
+                  }`}
+                >
+                  <div className="shrink-0">{lang.flag}</div>
+                  <span className="font-body text-[10px] tracking-widest uppercase font-bold">
+                    {lang.code}
+                  </span>
+                </button>
+              ))}
             </motion.div>
-            <span className="font-body text-[10px] tracking-widest font-bold uppercase">
-              {lang.code}
+          )}
+        </AnimatePresence>
+
+        <motion.button
+          onClick={() => setIsOpen(!isOpen)}
+          whileTap={{ scale: 0.95 }}
+          className="flex items-center gap-2 bg-background/40 backdrop-blur-xl border border-white/10 rounded-full py-2 px-4 shadow-xl text-white group"
+        >
+          <div className="flex items-center gap-3">
+            <motion.div
+              animate={isOpen ? {} : { 
+                y: [0, -2, 0],
+              }}
+              transition={{ 
+                duration: 4, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+            >
+              {currentLang.flag}
+            </motion.div>
+            <span className="font-body text-[10px] tracking-[0.2em] uppercase font-bold">
+              {currentLang.code}
             </span>
-          </button>
-        ))}
+          </div>
+          <ChevronDown size={14} className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""} text-muted-foreground group-hover:text-primary`} />
+        </motion.button>
       </div>
     </div>
   );
