@@ -191,7 +191,7 @@ export const blogPosts: BlogPost[] = [
     category: { IT: "Tecnologie", DE: "Technologien" },
     date: "19 Aprile 2024",
     readTime: "4 min",
-    image: "/blog/botox.png",
+    image: "/blog/ultraformer.png",
     content: {
       IT: `
         <p>Se cerchi un modo per contrastare la lassità cutanea senza ricorrere alla chirurgia, l'<strong>Ultraformer III</strong> rappresenta la frontiera più avanzata. Questa tecnologia sfrutta gli Ultrasuoni Focalizzati ad Alta Intensità (HIFU) per ottenere un effetto lifting naturale e duraturo su viso e corpo.</p>
