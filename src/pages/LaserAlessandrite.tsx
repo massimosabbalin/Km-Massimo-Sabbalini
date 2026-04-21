@@ -314,6 +314,38 @@ const LaserAlessandrite = () => {
         </div>
       </section>
 
+      {/* Results Section */}
+      <section className="py-24 bg-[#131313] border-t border-[#2a2a2a]/30">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-headline-xl text-3xl md:text-5xl text-[#e5e2e1] mb-4 text-balance">Alcuni dei nostri risultati...</h2>
+            <div className="w-16 h-px bg-[#d4af37] mx-auto"></div>
+          </div>
+          
+          <div className="flex overflow-x-auto gap-6 pb-12 md:pb-0 md:grid md:grid-cols-3 md:gap-10 snap-x snap-mandatory scrollbar-hide">
+            {[
+              "/laser/Progetto senza titolo.png",
+              "/laser/Progetto senza titolo (1).png",
+              "/laser/Progetto senza titolo (2).png"
+            ].map((img, idx) => (
+              <div key={idx} className="flex-shrink-0 w-[85%] md:w-auto snap-center">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[#2a2a2a] group shadow-2xl">
+                   <img 
+                    src={img} 
+                    alt={`Risultato Laser Alessandrite ${idx + 1}`} 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    loading="lazy"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                      <span className="text-xs uppercase tracking-widest text-[#d4af37] font-medium">Prima e Dopo</span>
+                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );
