@@ -171,24 +171,33 @@ const LaserAlessandrite = () => {
           <div className="text-center mb-12 md:mb-20">
             <span className="font-label-caps text-[#d4af37] mb-3 block tracking-widest uppercase text-[10px] md:text-xs">Investimento nella tua pelle</span>
             <h2 className="font-headline-xl text-3xl md:text-headline-xl text-[#e5e2e1] mb-4">Listino Trattamenti</h2>
-            <p className="font-body-md text-sm md:text-base text-[#d0c5af]">Protocolli personalizzati basati su eccellenza medica.</p>
+            <div className="flex justify-center gap-4 mb-8">
+              <span className="bg-[#d4af37]/10 text-[#d4af37] border border-[#d4af37]/30 px-4 py-1 rounded-full text-[10px] uppercase tracking-widest font-medium">
+                Prova Gratuita Disponibile
+              </span>
+            </div>
+            <p className="font-body-md text-sm md:text-base text-[#d0c5af] max-w-2xl mx-auto">
+              Protocolli personalizzati con tecnologia Candela GentlePro. 
+              <br className="hidden md:block" />
+              Possibilità di <span className="text-[#f2ca50]">pagamento frazionato</span> nei primi 3 mesi di trattamento.
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#2a2a2a] border border-[#2a2a2a]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#2a2a2a] border border-[#2a2a2a] mb-20">
             {[
               { 
                 name: "Zona Piccola", 
-                desc: "Viso, mani, orecchie o piccole aree specifiche.", 
+                desc: "A scelta tra: attaccatura capelli, guance, baffetto, orecchie, mento, mani, piedi, basette.", 
                 prices: [{ s: "1 seduta", p: "€40" }, { s: "2 sedute", p: "€70" }, { s: "4 sedute", p: "€125", highlight: true }] 
               },
               { 
                 name: "Zona Media", 
-                desc: "Ascelle, inguine parziale, avambracci o collo.", 
+                desc: "A scelta tra: spalle, ascelle, glutei, inguine, ½ braccio, viso totale, addome.", 
                 prices: [{ s: "1 seduta", p: "€95" }, { s: "2 sedute", p: "€160" }, { s: "4 sedute", p: "€310", highlight: true }] 
               },
               { 
                 name: "Zona Grande", 
-                desc: "Gambe intere, braccia complete, schiena o petto.", 
+                desc: "A scelta tra: coscia, ½ gamba, torace, schiena, braccio intero.", 
                 prices: [{ s: "1 seduta", p: "€150" }, { s: "2 sedute", p: "€270" }, { s: "4 sedute", p: "€520", highlight: true }] 
               }
             ].map((zone, idx) => (
@@ -207,9 +216,62 @@ const LaserAlessandrite = () => {
             ))}
           </div>
 
+          {/* New Uomo Section */}
+          <div className="bg-[#131313] border border-[#2a2a2a] p-8 md:p-16 relative overflow-hidden">
+             <div className="absolute top-0 right-0 p-8 opacity-5 select-none pointer-events-none">
+                <span className="font-display text-9xl">UOMO</span>
+             </div>
+             <div className="relative z-10">
+               <span className="font-label-caps text-[#d4af37] mb-4 block tracking-widest uppercase text-xs">Medical Excellence for Men</span>
+               <h3 className="font-headline-xl text-3xl md:text-5xl text-[#e5e2e1] mb-12">Speciale Epilazione Uomo</h3>
+               
+               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+                 <div className="space-y-4">
+                   <h4 className="font-label-caps text-[#f2ca50] text-xs mb-6 border-b border-[#f2ca50]/20 pb-2">Seduta Singola</h4>
+                   {[
+                     { area: "Schiena Intera", price: "€160" },
+                     { area: "Schiena Metà", price: "€110" },
+                     { area: "Gamba Intera", price: "€280" },
+                     { area: "Gamba Metà", price: "€215" },
+                     { area: "Petto / Addome", price: "€130" },
+                     { area: "Mento / Barba", price: "€95" },
+                     { area: "Braccia", price: "€140" },
+                     { area: "Ascelle", price: "€85" }
+                   ].map((item, i) => (
+                     <div key={i} className="flex justify-between items-center py-2 border-b border-[#2a2a2a]/50">
+                       <span className="text-[#d0c5af] text-sm md:text-base">{item.area}</span>
+                       <span className="font-display text-lg md:text-xl text-[#e5e2e1]">{item.price}</span>
+                     </div>
+                   ))}
+                 </div>
+                 <div className="space-y-4 bg-[#202020]/30 p-6 md:p-8 rounded-lg border border-[#d4af37]/10">
+                   <h4 className="font-label-caps text-[#f2ca50] text-xs mb-6 border-b border-[#f2ca50]/20 pb-2">Pacchetto 8 Sedute (Risultato Garantito)</h4>
+                   {[
+                     { area: "Schiena Intera", price: "€950" },
+                     { area: "Schiena Metà", price: "€660" },
+                     { area: "Gamba Intera", price: "€1.800" },
+                     { area: "Gamba Metà", price: "€980" },
+                     { area: "Petto", price: "€1.000" },
+                     { area: "Mento / Barba", price: "€720" },
+                     { area: "Addome", price: "€900" },
+                     { area: "Ascelle", price: "€600" }
+                   ].map((item, i) => (
+                     <div key={i} className="flex justify-between items-center py-2 border-b border-[#2a2a2a]/50">
+                       <span className="text-[#d0c5af] text-sm md:text-base">{item.area}</span>
+                       <span className="font-display text-lg md:text-xl text-[#f2ca50]">{item.price}</span>
+                     </div>
+                   ))}
+                   <p className="text-[10px] text-[#muted-foreground] mt-6 italic opacity-70">
+                     *Possibilità di pagamento frazionato nei primi 3 mesi di trattamento.
+                   </p>
+                 </div>
+               </div>
+             </div>
+          </div>
+
           <div className="mt-16 flex justify-center items-center">
             <a
-              href="https://wa.me/393296164667?text=Buongiorno,%20vorrei%20delle%20info%20sul%20trattamento%20Laser%20Alessandrite"
+              href="https://wa.me/393296164667?text=Buongiorno,%20vorrei%20prenotare%20una%20PROVA%20GRATUITA%20per%20il%20Laser%20Alessandrite"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-gold-gradient text-[#131313] px-10 py-5 rounded-full text-[10px] md:text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20"
@@ -217,7 +279,7 @@ const LaserAlessandrite = () => {
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
-              Prenota su WhatsApp
+              Prenota Prova Gratuita
             </a>
           </div>
         </div>
