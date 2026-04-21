@@ -9,7 +9,7 @@ const AboutSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="py-32 relative" ref={ref}>
+    <section id="about" className="py-16 md:py-32 relative" ref={ref}>
       <div className="max-w-4xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
