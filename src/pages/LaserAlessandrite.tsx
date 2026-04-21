@@ -207,13 +207,7 @@ const LaserAlessandrite = () => {
             ))}
           </div>
 
-          <div className="mt-16 flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a
-              href="/#contatti"
-              className="inline-flex items-center gap-3 border border-primary/50 text-[#e5e2e1] px-10 py-5 rounded-full text-[10px] md:text-xs tracking-[0.2em] uppercase font-medium hover:bg-primary/10 transition-all duration-300"
-            >
-              Maggiori Informazioni
-            </a>
+          <div className="mt-16 flex justify-center items-center">
             <a
               href="https://wa.me/393296164667?text=Buongiorno,%20vorrei%20delle%20info%20sul%20trattamento%20Laser%20Alessandrite"
               target="_blank"
