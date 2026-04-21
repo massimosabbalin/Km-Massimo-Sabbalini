@@ -129,7 +129,7 @@ export const blogPosts: BlogPost[] = [
     category: "Trattamenti Corpo",
     date: "18 Aprile 2024",
     readTime: "3 min",
-    image: "https://images.unsplash.com/photo-1512413316925-fd4b93f31521?q=80&w=1974&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1620916566398-39f11438784e?q=80&w=2070&auto=format&fit=crop",
     content: `
       <p>Il trattamento con <strong>Vitamina C ad azione lipolitica</strong> è una strategia mirata per combattere le adiposità localizzate che spesso resistono a dieta ed esercizio fisico. Non si tratta solo di estetica, ma di un vero e proprio stimolo metabolico per i tessuti.</p>
       
