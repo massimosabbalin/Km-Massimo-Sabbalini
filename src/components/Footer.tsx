@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
+  const footerLinksIdx = [
+    { label: t("about.subtitle"), href: "/#about" },
+    { label: t("nav.treatments"), href: "/trattamenti" },
+    { label: t("nav.locations"), href: "/#sedi" },
+    { label: t("nav.contact"), href: `https://wa.me/393296164667?text=${encodeURIComponent(t("nav.whatsappMessage"))}` },
+  ];
+
   return (
     <footer className="py-16 border-t border-border">
       <div className="max-w-7xl mx-auto px-6">
@@ -9,7 +19,7 @@ const Footer = () => {
           <div>
             <img src={logo} alt="Dott. Massimo Sabbalini" className="h-14 w-auto mb-4" />
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Medicina e Chirurgia Estetica d'eccellenza.
+              {t("footer.medicalExcellence")}
               <br />
               Dott. Massimo Sabbalini
             </p>
@@ -17,15 +27,10 @@ const Footer = () => {
 
           <div>
             <h4 className="font-body text-xs tracking-[0.3em] uppercase text-primary mb-4">
-              Link Rapidi
+              {t("footer.quickLinks")}
             </h4>
             <div className="space-y-3">
-              {[
-                { label: "Chi Siamo", href: "/#about" },
-                { label: "Trattamenti", href: "/trattamenti" },
-                { label: "Le Nostre Sedi", href: "/#sedi" },
-                { label: "Contatti", href: "https://wa.me/393296164667?text=Buongiorno,%20vorrei%20delle%20info%20sui%20vostri%20trattamenti%20" },
-              ].map((item) => (
+              {footerLinksIdx.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
@@ -39,7 +44,7 @@ const Footer = () => {
 
           <div>
             <h4 className="font-body text-xs tracking-[0.3em] uppercase text-primary mb-4">
-              Contatti
+              {t("footer.contacts")}
             </h4>
             <div className="space-y-3 text-sm text-muted-foreground">
               <a href="tel:+393296164667" className="block hover:text-primary transition-colors">
@@ -60,7 +65,7 @@ const Footer = () => {
                 <button
                   onClick={() => {
                     navigator.clipboard.writeText("sabbalinimassimo@proton.me");
-                    alert("Email copiata negli appunti");
+                    alert(t("footer.copyEmail"));
                   }}
                   className="p-1.5 rounded-md hover:bg-primary/10 text-muted-foreground hover:text-primary transition-all opacity-0 group-hover:opacity-100"
                   title="Copia Email"
@@ -71,7 +76,7 @@ const Footer = () => {
                 </button>
               </div>
               <a
-                href="https://wa.me/393296164667?text=Buongiorno,%20vorrei%20delle%20info%20sui%20vostri%20trattamenti%20"
+                href={`https://wa.me/393296164667?text=${encodeURIComponent(t("nav.whatsappMessage"))}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block text-primary hover:text-foreground transition-colors"
@@ -84,7 +89,7 @@ const Footer = () => {
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Dott. Massimo Sabbalini. Tutti i diritti riservati.
+            © {new Date().getFullYear()} Dott. Massimo Sabbalini. {t("footer.rights")}
           </p>
           <div className="flex gap-6">
             <Link to="/privacy-policy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">

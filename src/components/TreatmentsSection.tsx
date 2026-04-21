@@ -2,37 +2,39 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 import laserHero from "@/assets/laser-alessandrite-hero.png";
-
-const featuredTreatments = [
-  {
-    name: "Laser Alessandrite",
-    description: "Epilazione definitiva con tecnologia medica Candela GentlePro per risultati eccellenti.",
-    image: laserHero,
-    href: "/laser-alessandrite",
-    hideBadges: true,
-  },
-  {
-    name: "Filler Labbra",
-    description: "Trattamento con acido ialuronico per labbra più piene, definite e naturali.",
-    image: "/risultati/9.png",
-  },
-  {
-    name: "Botox Viso",
-    description: "Riduce le rughe d'espressione per un aspetto più fresco e rilassato.",
-    image: "/risultati/11.png",
-  },
-  {
-    name: "Rinofiller",
-    description: "Rimodellamento non chirurgico del naso con filler di ultima generazione.",
-    image: "/risultati/19.png",
-  },
-];
 
 const TreatmentsSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
+
+  const featuredTreatments = [
+    {
+      name: t("treatments.list.laser.name"),
+      description: t("treatments.list.laser.desc"),
+      image: laserHero,
+      href: "/laser-alessandrite",
+      hideBadges: true,
+    },
+    {
+      name: t("treatments.list.filler.name"),
+      description: t("treatments.list.filler.desc"),
+      image: "/risultati/9.png",
+    },
+    {
+      name: t("treatments.list.botox.name"),
+      description: t("treatments.list.botox.desc"),
+      image: "/risultati/11.png",
+    },
+    {
+      name: t("treatments.list.rhino.name"),
+      description: t("treatments.list.rhino.desc"),
+      image: "/risultati/19.png",
+    },
+  ];
 
   return (
     <section id="trattamenti" className="py-32 relative" ref={ref}>
@@ -46,10 +48,10 @@ const TreatmentsSection = () => {
           className="text-center mb-20"
         >
           <p className="font-body text-xs tracking-[0.4em] uppercase text-primary mb-4">
-            I Nostri Servizi
+            {t("treatments.subtitle")}
           </p>
           <h2 className="font-display text-4xl md:text-6xl text-foreground mb-4">
-            Trattamenti <span className="text-gold-gradient italic">Esclusivi</span>
+            {t("treatments.title")} <span className="text-gold-gradient italic">{t("treatments.titleItalic")}</span>
           </h2>
           <div className="w-16 h-[1px] bg-gold-gradient mx-auto" />
         </motion.div>
@@ -67,14 +69,14 @@ const TreatmentsSection = () => {
                 <div className="relative aspect-[16/9] overflow-hidden">
                   <img
                     src={t.image}
-                    alt={`Prima e dopo ${t.name}`}
+                    alt={`${t.name}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
                   {!t.hideBadges && (
                     <div className="absolute bottom-3 left-4 right-4 flex justify-between">
-                      <span className="text-[10px] tracking-[0.2em] uppercase text-foreground/60 bg-background/60 backdrop-blur-sm px-3 py-1 rounded-full">Prima</span>
-                      <span className="text-[10px] tracking-[0.2em] uppercase text-primary bg-background/60 backdrop-blur-sm px-3 py-1 rounded-full">Dopo</span>
+                      <span className="text-[10px] tracking-[0.2em] uppercase text-foreground/60 bg-background/60 backdrop-blur-sm px-3 py-1 rounded-full">{useLanguage().t("treatments.before")}</span>
+                      <span className="text-[10px] tracking-[0.2em] uppercase text-primary bg-background/60 backdrop-blur-sm px-3 py-1 rounded-full">{useLanguage().t("treatments.after")}</span>
                     </div>
                   )}
                 </div>
@@ -110,7 +112,7 @@ const TreatmentsSection = () => {
             to="/trattamenti"
             className="inline-flex items-center gap-3 bg-gold-gradient text-primary-foreground px-10 py-4 rounded-full text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 group"
           >
-            Mostra Tutti i Trattamenti
+            {t("treatments.ctaAll")}
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </motion.div>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CookieBar = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -24,6 +25,8 @@ const CookieBar = () => {
         setIsVisible(false);
     };
 
+    const { t } = useLanguage();
+
     return (
         <AnimatePresence>
             {isVisible && (
@@ -36,7 +39,7 @@ const CookieBar = () => {
                 >
                     <div className="bg-card/95 backdrop-blur-xl border border-primary/20 p-6 rounded-2xl shadow-2xl shadow-black/50">
                         <div className="flex justify-between items-start mb-4">
-                            <h3 className="font-display text-xl text-gold-gradient italic">Informativa sui Cookie</h3>
+                            <h3 className="font-display text-xl text-gold-gradient italic">{t("cookies.title")}</h3>
                             <button
                                 onClick={() => setIsVisible(false)}
                                 className="text-muted-foreground hover:text-foreground transition-colors"
@@ -45,22 +48,20 @@ const CookieBar = () => {
                             </button>
                         </div>
                         <p className="text-xs text-muted-foreground leading-relaxed mb-6">
-                            Utilizziamo cookie propri e di terzi (Meta, Google, TikTok) per migliorare la tua esperienza di navigazione,
-                            analizzare il traffico e offrirti contenuti pubblicitari personalizzati.
-                            Consultando la nostra <Link to="/cookie-policy" className="text-primary hover:underline">Cookie Policy</Link> puoi scoprire di più o negare il consenso.
+                            {t("cookies.desc")}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3">
                             <button
                                 onClick={acceptCookies}
                                 className="flex-1 bg-gold-gradient text-primary-foreground px-6 py-2.5 rounded-full text-xs tracking-wider uppercase font-medium hover:opacity-90 transition-opacity"
                             >
-                                Accetta Tutto
+                                {t("cookies.accept")}
                             </button>
                             <button
                                 onClick={declineCookies}
                                 className="flex-1 border border-primary/20 text-foreground px-6 py-2.5 rounded-full text-xs tracking-wider uppercase font-medium hover:bg-primary/5 transition-colors"
                             >
-                                Solo Necessari
+                                {t("cookies.decline")}
                             </button>
                         </div>
                     </div>

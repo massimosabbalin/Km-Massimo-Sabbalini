@@ -9,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const resultsData = [
   { id: 1, src: '/risultati/1.png', alt: 'Trattamento occhiaie prima e dopo - Risultato naturale e luminoso Dott. Massimo Sabbalini', title: 'Correzione Occhiaie' },
@@ -22,17 +23,20 @@ const resultsData = [
 ];
 
 const ResultsCarousel = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 bg-background relative overflow-hidden">
       <div className="container px-4 mx-auto relative z-10 w-full max-w-6xl">
         <div className="flex flex-col items-center justify-center text-center mb-12">
-          <span className="text-primary font-medium tracking-wider uppercase text-sm mb-4 block">PORTFOLIO</span>
+          <span className="text-primary font-medium tracking-wider uppercase text-sm mb-4 block">
+            {t("results.subtitle").toUpperCase()}
+          </span>
           <h2 className="text-3xl md:text-5xl font-light mb-6">
-            Facciamo parlare i <span className="font-medium text-primary">risultati</span>
+            {t("results.carouselTitle")} <span className="font-medium text-primary">{t("results.carouselAccent")}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            L'approccio del Dott. Sabbalini è focalizzato su risultati naturali e personalizzati. 
-            Scopri i casi prima e dopo per apprezzare i dettagli di ogni trattamento medico estetico.
+            {t("results.desc")}
           </p>
         </div>
 
@@ -49,16 +53,16 @@ const ResultsCarousel = () => {
                 <CarouselItem key={result.id} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
                   <Dialog>
                     <DialogTrigger asChild>
-                      <div className="relative aspect-[4/5] overflow-hidden rounded-2xl cursor-pointer group shadow-sm bg-muted/30">
+                      <div className="relative aspect-[4/5] overflow-hidden rounded-2xl cursor-pointer group shadow-sm bg-muted/30 border border-border">
                         <img 
                           src={result.src} 
                           alt={result.alt} 
                           className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
                         />
-                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center">
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center">
                           <span className="text-white bg-black/50 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm -translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                            Clicca per ingrandire
+                            {t("results.enlarge")}
                           </span>
                         </div>
                       </div>
@@ -68,7 +72,7 @@ const ResultsCarousel = () => {
                       <img 
                         src={result.src} 
                         alt={result.alt} 
-                        className="w-auto h-auto max-h-[85vh] max-w-full rounded-lg object-contain"
+                        className="w-auto h-auto max-h-[85vh] max-w-full rounded-lg object-contain shadow-2xl"
                       />
                     </DialogContent>
                   </Dialog>
@@ -84,7 +88,7 @@ const ResultsCarousel = () => {
         <div className="flex justify-center mt-10">
           <Button asChild size="lg" className="rounded-full shadow-lg group px-8">
             <Link to="/risultati">
-              Vedi tutti i risultati
+              {t("results.viewAll")}
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>

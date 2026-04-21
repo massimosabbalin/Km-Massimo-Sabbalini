@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const resultsData = [
   { id: 1, src: '/risultati/1.png', alt: 'Trattamento occhiaie prima e dopo - Risultato naturale e luminoso Dott. Massimo Sabbalini', title: 'Correzione Occhiaie' },
@@ -24,10 +25,14 @@ const resultsData = [
 ];
 
 const Risultati = () => {
+  const { t, language } = useLanguage();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Risultati Trattamenti Prima e Dopo | Dott. Massimo Sabbalini";
-  }, []);
+    document.title = language === "IT" 
+      ? "Risultati Trattamenti Prima e Dopo | Dott. Massimo Sabbalini" 
+      : "Behandlungsergebnisse Vorher und Nachher | Dr. Massimo Sabbalini";
+  }, [language]);
 
   return (
     <main className="min-h-screen bg-background">
@@ -35,13 +40,14 @@ const Risultati = () => {
       <div className="pt-28 pb-20">
         <div className="container px-4 mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <span className="text-primary font-medium tracking-wider uppercase text-sm mb-4 block">Galleria Fotografica</span>
+            <span className="text-primary font-medium tracking-wider uppercase text-sm mb-4 block">
+                {t("results.subtitle")}
+            </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light mb-6">
-              I Miei <span className="font-medium text-primary">Risultati</span>
+              {t("results.title")} <span className="font-medium text-primary">{t("results.titleAccent")}</span>
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Sfoglia la galleria per visualizzare i risultati dei trattamenti estetici. 
-              Ogni piano terapeutico è personalizzato per esaltare la bellezza naturale di ogni paziente.
+              {t("results.desc")}
             </p>
           </div>
 
@@ -49,16 +55,16 @@ const Risultati = () => {
             {resultsData.map((result) => (
               <Dialog key={result.id}>
                 <DialogTrigger asChild>
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl cursor-pointer group shadow-md hover:shadow-lg transition-all bg-muted/30">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl cursor-pointer group shadow-md hover:shadow-lg transition-all bg-muted/30 border border-border">
                     <img 
                       src={result.src} 
                       alt={result.alt} 
                       className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center">
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center">
                       <span className="text-white bg-black/50 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm -translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                        Clicca per ingrandire
+                        {t("results.enlarge")}
                       </span>
                     </div>
                   </div>
@@ -68,7 +74,7 @@ const Risultati = () => {
                   <img 
                     src={result.src} 
                     alt={result.alt} 
-                    className="w-auto h-auto max-h-[85vh] max-w-full rounded-lg object-contain"
+                    className="w-auto h-auto max-h-[85vh] max-w-full rounded-lg object-contain shadow-2xl"
                   />
                 </DialogContent>
               </Dialog>

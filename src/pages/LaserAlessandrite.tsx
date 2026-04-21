@@ -3,6 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   Dialog,
   DialogContent,
@@ -11,6 +12,8 @@ import {
 } from "@/components/ui/dialog";
 
 const LaserAlessandrite = () => {
+  const { t } = useLanguage();
+
   return (
     <main className="min-h-screen bg-[#131313] text-[#e5e2e1] font-body-md overflow-x-hidden">
       <Navbar />
@@ -32,14 +35,14 @@ const LaserAlessandrite = () => {
               className="inline-flex items-center gap-2 text-[10px] md:text-xs tracking-[0.15em] uppercase text-primary mb-6 md:mb-8 hover:opacity-80 transition-opacity"
             >
               <ArrowLeft size={12} />
-              Tutti i Trattamenti
+              {t("laser.allTreatments")}
             </Link>
             <motion.span 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className="font-label-caps text-[10px] md:text-xs text-primary mb-4 md:mb-6 block"
             >
-              DOTT. MASSIMO SABBALINI — MEDICINA E CHIRURGIA ESTETICA
+              DOTT. MASSIMO SABBALINI — {t("hero.subtitle").toUpperCase()}
             </motion.span>
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
@@ -47,7 +50,7 @@ const LaserAlessandrite = () => {
               transition={{ delay: 0.2 }}
               className="font-display-lg text-3xl sm:text-4xl md:text-display-lg text-[#e5e2e1] mb-6 md:mb-8 leading-tight"
             >
-              Il Gold Standard dell'Epilazione Medica: <span className="text-[#d4af37] italic">Laser Alessandrite</span>
+              {t("laser.goldStandard")}: <span className="text-[#d4af37] italic">Laser Alessandrite</span>
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0 }}
@@ -55,7 +58,7 @@ const LaserAlessandrite = () => {
               transition={{ delay: 0.4 }}
               className="font-body-lg text-sm md:text-body-lg text-[#d0c5af] mb-8 md:mb-10 max-w-xl leading-relaxed"
             >
-              L'eccellenza tecnologica di Candela GentlePro per risultati definitivi sulla pelle chiara. Precisione clinica e comfort superiore.
+              {t("laser.techDesc")}
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -64,10 +67,10 @@ const LaserAlessandrite = () => {
               className="flex flex-col sm:flex-row gap-4 md:gap-6"
             >
               <a className="bg-primary text-[#3c2f00] px-8 md:px-10 py-4 font-label-caps text-xs md:text-sm text-center hover:scale-105 hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all" href="#pricing">
-                SCOPRI I PREZZI
+                {t("laser.showPricing")}
               </a>
               <a className="border border-[#4d4635] text-[#e5e2e1] px-8 md:px-10 py-4 font-label-caps text-xs md:text-sm text-center hover:bg-[#2a2a2a] transition-all" href="#technology">
-                TECNOLOGIA
+                {t("laser.technology")}
               </a>
             </motion.div>
           </div>
@@ -86,20 +89,16 @@ const LaserAlessandrite = () => {
             />
           </div>
           <div className="order-1 md:order-2">
-            <span className="font-label-caps text-[#d4af37] mb-3 md:mb-4 block uppercase tracking-widest text-[10px] md:text-xs">Medical Precision</span>
-            <h2 className="font-headline-xl text-3xl md:text-headline-xl text-[#e5e2e1] mb-6 md:mb-8">Tecnologia Candela GentlePro</h2>
+            <span className="font-label-caps text-[#d4af37] mb-3 md:mb-4 block uppercase tracking-widest text-[10px] md:text-xs">{t("laser.medicalPrecision")}</span>
+            <h2 className="font-headline-xl text-3xl md:text-headline-xl text-[#e5e2e1] mb-6 md:mb-8">{t("laser.candelaTech")}</h2>
             <div className="space-y-4 md:space-y-6 font-body-lg text-sm md:text-body-lg text-[#d0c5af] leading-relaxed">
-              <p>
-                Il Laser Alessandrite di Candela rappresenta l'apice dell'innovazione medica nel campo dell'epilazione. A differenza dei sistemi a diodo commerciali, la lunghezza d'onda di 755nm è specificamente ottimizzata per il massimo assorbimento della melanina.
-              </p>
-              <p>
-                Questa tecnologia è il trattamento d'elezione per i fototipi chiari, garantendo una rimozione dei peli più rapida e profonda, agendo direttamente sul bulbo pilifero senza danneggiare i tessuti circostanti.
-              </p>
+              <p>{t("laser.candelaDesc1")}</p>
+              <p>{t("laser.candelaDesc2")}</p>
               <ul className="space-y-3 md:space-y-4 mt-6 md:mt-8">
                 {[
-                  "Efficacia superiore su peli sottili e chiari",
-                  "Approvato FDA per la sicurezza clinica",
-                  "Risultati visibili fin dalle prime sedute"
+                  t("laser.check1"),
+                  t("laser.check2"),
+                  t("laser.check3")
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-3 md:gap-4">
                     <span className="material-symbols-outlined text-[#d4af37] text-xl">check_circle</span>
@@ -112,48 +111,46 @@ const LaserAlessandrite = () => {
         </div>
       </section>
 
-      {/* New Section: Approccio Medico e Salute Pelle */}
+      {/* Section: Approccio Medico */}
       <section className="py-24 bg-[#0e0e0e] border-y border-[#2a2a2a]/30">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="font-label-caps text-[#d4af37] mb-4 block tracking-widest uppercase text-xs">Oltre l'estetica</span>
-              <h2 className="font-headline-xl text-3xl md:text-5xl text-[#e5e2e1] mb-8 leading-tight">Efficacia Clinica & <br /><span className="text-[#d4af37] italic">Salute della Pelle</span></h2>
+              <span className="font-label-caps text-[#d4af37] mb-4 block tracking-widest uppercase text-xs">{t("laser.beyondAesthetics")}</span>
+              <h2 className="font-headline-xl text-3xl md:text-5xl text-[#e5e2e1] mb-8 leading-tight">
+                {t("laser.clinicalHealth").split('&')[0]} & <br /><span className="text-[#d4af37] italic">{t("laser.clinicalHealth").split('&')[1]}</span>
+              </h2>
               <p className="font-body-lg text-[#d0c5af] mb-8 leading-relaxed italic">
-                "Non è solo epilazione, è un percorso di rigenerazione cutanea supervisionato da specialisti."
+                {t("laser.quote")}
               </p>
             </div>
             <div className="grid grid-cols-1 gap-8">
               <div className="bg-[#131313] p-8 border border-[#2a2a2a] group hover:border-[#d4af37]/40 transition-all">
-                <h4 className="font-headline-md text-[#e5e2e1] text-xl mb-4">Supporto Clinico per Squilibri Ormonali</h4>
-                <p className="text-sm text-[#d0c5af] leading-relaxed">
-                  A differenza dei trattamenti estetici standard, il Laser Alessandrite è lo strumento d'elezione per casi di irsutismo o peli legati a fattori ormonali, garantendo risultati stabili dove altri sistemi falliscono.
-                </p>
+                <h4 className="font-headline-md text-[#e5e2e1] text-xl mb-4">{t("laser.hormonalTitle")}</h4>
+                <p className="text-sm text-[#d0c5af] leading-relaxed">{t("laser.hormonalDesc")}</p>
               </div>
               <div className="bg-[#131313] p-8 border border-[#2a2a2a] group hover:border-[#d4af37]/40 transition-all">
-                <h4 className="font-headline-md text-[#e5e2e1] text-xl mb-4">Stop a Follicoliti e Irritazioni</h4>
-                <p className="text-sm text-[#d0c5af] leading-relaxed">
-                  L'azione mirata del laser elimina alla radice la causa di peli incarniti e irritazioni croniche da rasoio o ceretta, restituendo una pelle liscia, uniforme e profondamente rigenerata.
-                </p>
+                <h4 className="font-headline-md text-[#e5e2e1] text-xl mb-4">{t("laser.folliculitisTitle")}</h4>
+                <p className="text-sm text-[#d0c5af] leading-relaxed">{t("laser.folliculitisDesc")}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section 2: Perché scegliere l'Alessandrite? */}
+      {/* Section 2: Benefici */}
       <section className="py-20 md:py-32 bg-[#0e0e0e]" id="benefits">
         <div className="max-w-7xl mx-auto px-6 md:px-8 text-center">
           <div className="mb-12 md:mb-20">
-            <h2 className="font-headline-xl text-3xl md:text-headline-xl text-[#e5e2e1] mb-4">Perché scegliere l'Alessandrite?</h2>
+            <h2 className="font-headline-xl text-3xl md:text-headline-xl text-[#e5e2e1] mb-4">{t("laser.whyAlessandrite")}</h2>
             <div className="w-16 md:w-24 h-px bg-[#f2ca50] mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
-              { icon: "bolt", title: "Massima Efficacia", desc: "Risultati visibili fin dalla prima seduta, riducendo drasticamente il numero totale." },
-              { icon: "ac_unit", title: "Comfort", desc: "Sistema di raffreddamento criogenico DCD™ integrato per un'esperienza quasi indolore." },
-              { icon: "verified_user", title: "Sicurezza", desc: "Protocolli medici rigorosi e supervisione costante dello specialista." },
-              { icon: "target", title: "Precisione", desc: "Trattamento mirato che non interferisce con la pelle circostante." }
+              { icon: "bolt", title: t("laser.benefit1Title"), desc: t("laser.benefit1Desc") },
+              { icon: "ac_unit", title: t("laser.benefit2Title"), desc: t("laser.benefit2Desc") },
+              { icon: "verified_user", title: t("laser.benefit3Title"), desc: t("laser.benefit3Desc") },
+              { icon: "target", title: t("laser.benefit4Title"), desc: t("laser.benefit4Desc") }
             ].map((benefit, idx) => (
               <div key={idx} className="bg-[#131313] p-8 md:p-10 border border-[#2a2a2a] hover:border-[#f2ca50]/30 transition-all duration-500 gold-shimmer group text-left sm:text-center">
                 <div className="w-12 h-12 rounded-full border border-[#d4af37] flex items-center justify-center mb-6 mx-auto sm:mx-auto group-hover:scale-110 transition-transform">
@@ -167,17 +164,17 @@ const LaserAlessandrite = () => {
         </div>
       </section>
 
-      {/* Section 3: Come funziona Step by Step */}
+      {/* Section 3: Percorso */}
       <section className="py-20 md:py-32 px-6 md:px-8 max-w-7xl mx-auto" id="procedure">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20">
           <div>
-            <h2 className="font-headline-xl text-3xl md:text-headline-xl text-[#e5e2e1] mb-8 md:mb-12">Il Percorso Clinico</h2>
+            <h2 className="font-headline-xl text-3xl md:text-headline-xl text-[#e5e2e1] mb-8 md:mb-12">{t("laser.clinicalPath")}</h2>
             <div className="space-y-10 md:space-y-16">
               {[
-                { step: "01", title: "Consulenza Iniziale", desc: "Analisi del fototipo e della tipologia di pelo per calibrare i parametri del laser." },
-                { step: "02", title: "Preparazione e Test", desc: "Detersione della zona e test spot per assicurare la massima tollerabilità cutanea." },
-                { step: "03", title: "La Seduta", desc: "Applicazione del laser con impulsi precisi assistiti dal raffreddamento criogenico." },
-                { step: "04", title: "Post-Trattamento", desc: "Applicazione di lozioni lenitive e pianificazione del follow-up personalizzato." }
+                { step: "01", title: t("laser.step1Title"), desc: t("laser.step1Desc") },
+                { step: "02", title: t("laser.step2Title"), desc: t("laser.step2Desc") },
+                { step: "03", title: t("laser.step3Title"), desc: t("laser.step3Desc") },
+                { step: "04", title: t("laser.step4Title"), desc: t("laser.step4Desc") }
               ].map((item, idx) => (
                 <div key={idx} className="flex gap-6 md:gap-8 group">
                   <div className="flex-shrink-0 text-[#d4af37] font-serif text-3xl md:text-4xl opacity-50 group-hover:opacity-100 transition-opacity">{item.step}</div>
@@ -200,40 +197,38 @@ const LaserAlessandrite = () => {
         </div>
       </section>
 
-      {/* Section 4: Listino Prezzi */}
+      {/* Section 4: Prezzi */}
       <section className="py-20 md:py-32 bg-[#1b1b1c]" id="pricing">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="text-center mb-12 md:mb-20">
-            <span className="font-label-caps text-[#d4af37] mb-3 block tracking-widest uppercase text-[10px] md:text-xs">Investimento nella tua pelle</span>
-            <h2 className="font-headline-xl text-3xl md:text-headline-xl text-[#e5e2e1] mb-4">Listino Trattamenti</h2>
+            <span className="font-label-caps text-[#d4af37] mb-3 block tracking-widest uppercase text-[10px] md:text-xs">{t("laser.pricingSubtitle")}</span>
+            <h2 className="font-headline-xl text-3xl md:text-headline-xl text-[#e5e2e1] mb-4">{t("laser.pricingTitle")}</h2>
             <div className="flex justify-center gap-4 mb-8">
               <span className="bg-[#d4af37]/10 text-[#d4af37] border border-[#d4af37]/30 px-4 py-1 rounded-full text-[10px] uppercase tracking-widest font-medium">
-                Prova Gratuita Disponibile
+                {t("laser.freeTrial")}
               </span>
             </div>
             <p className="font-body-md text-sm md:text-base text-[#d0c5af] max-w-2xl mx-auto">
-              Protocolli personalizzati con tecnologia Candela GentlePro. 
-              <br className="hidden md:block" />
-              Possibilità di <span className="text-[#f2ca50]">pagamento frazionato</span> nei primi 3 mesi di trattamento.
+              {t("laser.pricingDesc")}
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#2a2a2a] border border-[#2a2a2a] mb-20">
             {[
               { 
-                name: "Zona Piccola", 
-                desc: "A scelta tra: attaccatura capelli, guance, baffetto, orecchie, mento, mani, piedi, basette.", 
-                prices: [{ s: "1 seduta", p: "€40" }, { s: "2 sedute", p: "€70" }, { s: "4 sedute", p: "€125", highlight: true }] 
+                name: t("laser.smallZone"), 
+                desc: t("laser.smallDesc"), 
+                prices: [{ s: t("laser.session1"), p: "€40" }, { s: t("laser.session2"), p: "€70" }, { s: t("laser.session4"), p: "€125", highlight: true }] 
               },
               { 
-                name: "Zona Media", 
-                desc: "A scelta tra: spalle, ascelle, glutei, inguine, ½ braccio, viso totale, addome.", 
-                prices: [{ s: "1 seduta", p: "€95" }, { s: "2 sedute", p: "€160" }, { s: "4 sedute", p: "€310", highlight: true }] 
+                name: t("laser.mediumZone"), 
+                desc: t("laser.mediumDesc"), 
+                prices: [{ s: t("laser.session1"), p: "€95" }, { s: t("laser.session2"), p: "€160" }, { s: t("laser.session4"), p: "€310", highlight: true }] 
               },
               { 
-                name: "Zona Grande", 
-                desc: "A scelta tra: coscia, ½ gamba, torace, schiena, braccio intero.", 
-                prices: [{ s: "1 seduta", p: "€150" }, { s: "2 sedute", p: "€270" }, { s: "4 sedute", p: "€520", highlight: true }] 
+                name: t("laser.largeZone"), 
+                desc: t("laser.largeDesc"), 
+                prices: [{ s: t("laser.session1"), p: "€150" }, { s: t("laser.session2"), p: "€270" }, { s: t("laser.session4"), p: "€520", highlight: true }] 
               }
             ].map((zone, idx) => (
               <div key={idx} className="bg-[#131313] p-8 md:p-12 hover:bg-[#202020] transition-colors duration-500">
@@ -251,27 +246,27 @@ const LaserAlessandrite = () => {
             ))}
           </div>
 
-          {/* New Uomo Section */}
+          {/* Uomo Section */}
           <div className="bg-[#131313] border border-[#2a2a2a] p-8 md:p-16 relative overflow-hidden">
              <div className="absolute top-0 right-0 p-8 opacity-5 select-none pointer-events-none">
-                <span className="font-display text-9xl">UOMO</span>
+                <span className="font-display text-9xl">{useLanguage().language === 'IT' ? 'UOMO' : 'HERREN'}</span>
              </div>
              <div className="relative z-10">
                <span className="font-label-caps text-[#d4af37] mb-4 block tracking-widest uppercase text-xs">Medical Excellence for Men</span>
-               <h3 className="font-headline-xl text-3xl md:text-5xl text-[#e5e2e1] mb-12">Speciale Epilazione Uomo</h3>
+               <h3 className="font-headline-xl text-3xl md:text-5xl text-[#e5e2e1] mb-12">{t("laser.menSpecial")}</h3>
                
                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
                  <div className="space-y-4">
-                   <h4 className="font-label-caps text-[#f2ca50] text-xs mb-6 border-b border-[#f2ca50]/20 pb-2">Seduta Singola</h4>
+                   <h4 className="font-label-caps text-[#f2ca50] text-xs mb-6 border-b border-[#f2ca50]/20 pb-2">{t("laser.singleSession")}</h4>
                    {[
-                     { area: "Schiena Intera", price: "€160" },
-                     { area: "Schiena Metà", price: "€110" },
-                     { area: "Gamba Intera", price: "€280" },
-                     { area: "Gamba Metà", price: "€215" },
-                     { area: "Petto / Addome", price: "€130" },
-                     { area: "Mento / Barba", price: "€95" },
-                     { area: "Braccia", price: "€140" },
-                     { area: "Ascelle", price: "€85" }
+                     { area: useLanguage().language === 'IT' ? "Schiena Intera" : "Ganzer Rücken", price: "€160" },
+                     { area: useLanguage().language === 'IT' ? "Schiena Metà" : "Halber Rücken", price: "€110" },
+                     { area: useLanguage().language === 'IT' ? "Gamba Intera" : "Ganzes Bein", price: "€280" },
+                     { area: useLanguage().language === 'IT' ? "Gamba Metà" : "Halbes Bein", price: "€215" },
+                     { area: useLanguage().language === 'IT' ? "Petto / Addome" : "Brust / Bauch", price: "€130" },
+                     { area: useLanguage().language === 'IT' ? "Mento / Barba" : "Kinn / Bart", price: "€95" },
+                     { area: useLanguage().language === 'IT' ? "Braccia" : "Arme", price: "€140" },
+                     { area: useLanguage().language === 'IT' ? "Ascelle" : "Achseln", price: "€85" }
                    ].map((item, i) => (
                      <div key={i} className="flex justify-between items-center py-2 border-b border-[#2a2a2a]/50">
                        <span className="text-[#d0c5af] text-sm md:text-base">{item.area}</span>
@@ -280,16 +275,16 @@ const LaserAlessandrite = () => {
                    ))}
                  </div>
                  <div className="space-y-4 bg-[#202020]/30 p-6 md:p-8 rounded-lg border border-[#d4af37]/10">
-                   <h4 className="font-label-caps text-[#f2ca50] text-xs mb-6 border-b border-[#f2ca50]/20 pb-2">Pacchetto 8 Sedute (Risultato Garantito)</h4>
+                   <h4 className="font-label-caps text-[#f2ca50] text-xs mb-6 border-b border-[#f2ca50]/20 pb-2">{t("laser.packet8")}</h4>
                    {[
-                     { area: "Schiena Intera", price: "€950" },
-                     { area: "Schiena Metà", price: "€660" },
-                     { area: "Gamba Intera", price: "€1.800" },
-                     { area: "Gamba Metà", price: "€980" },
-                     { area: "Petto", price: "€1.000" },
-                     { area: "Mento / Barba", price: "€720" },
-                     { area: "Addome", price: "€900" },
-                     { area: "Ascelle", price: "€600" }
+                     { area: useLanguage().language === 'IT' ? "Schiena Intera" : "Ganzer Rücken", price: "€950" },
+                     { area: useLanguage().language === 'IT' ? "Schiena Metà" : "Halber Rücken", price: "€660" },
+                     { area: useLanguage().language === 'IT' ? "Gamba Intera" : "Ganzes Bein", price: "€1.800" },
+                     { area: useLanguage().language === 'IT' ? "Gamba Metà" : "Halbes Bein", price: "€980" },
+                     { area: useLanguage().language === 'IT' ? "Petto" : "Brust", price: "€1.000" },
+                     { area: useLanguage().language === 'IT' ? "Mento / Barba" : "Kinn / Bart", price: "€720" },
+                     { area: useLanguage().language === 'IT' ? "Addome" : "Bauch", price: "€900" },
+                     { area: useLanguage().language === 'IT' ? "Ascelle" : "Achseln", price: "€600" }
                    ].map((item, i) => (
                      <div key={i} className="flex justify-between items-center py-2 border-b border-[#2a2a2a]/50">
                        <span className="text-[#d0c5af] text-sm md:text-base">{item.area}</span>
@@ -297,7 +292,7 @@ const LaserAlessandrite = () => {
                      </div>
                    ))}
                    <p className="text-[10px] text-[#muted-foreground] mt-6 italic opacity-70">
-                     *Possibilità di pagamento frazionato nei primi 3 mesi di trattamento.
+                     {t("laser.installmentNote")}
                    </p>
                  </div>
                </div>
@@ -306,7 +301,7 @@ const LaserAlessandrite = () => {
 
           <div className="mt-16 flex justify-center items-center">
             <a
-              href="https://wa.me/393296164667?text=Buongiorno,%20vorrei%20informazioni%20sul%20trattamento%20Laser%20Alessandrite"
+              href={`https://wa.me/393296164667?text=${encodeURIComponent(t("nav.whatsappMessage"))}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-gold-gradient text-[#131313] px-10 py-5 rounded-full text-[10px] md:text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20"
@@ -314,7 +309,7 @@ const LaserAlessandrite = () => {
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
-              Prenota Ora
+              {t("nav.book")}
             </a>
           </div>
         </div>
@@ -324,7 +319,7 @@ const LaserAlessandrite = () => {
       <section className="py-24 bg-[#131313] border-t border-[#2a2a2a]/30">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-headline-xl text-3xl md:text-5xl text-[#e5e2e1] mb-4 text-balance">Alcuni dei nostri risultati...</h2>
+            <h2 className="font-headline-xl text-3xl md:text-5xl text-[#e5e2e1] mb-4 text-balance">{t("laser.resultsTitle")}</h2>
             <div className="w-16 h-px bg-[#d4af37] mx-auto"></div>
           </div>
           
@@ -345,7 +340,7 @@ const LaserAlessandrite = () => {
                         loading="lazy"
                        />
                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center p-6 pb-8">
-                          <span className="text-[10px] uppercase tracking-widest text-[#d4af37] font-medium border border-[#d4af37]/40 px-3 py-1 rounded-full bg-black/40 backdrop-blur-sm">Ingrandisci</span>
+                          <span className="text-[10px] uppercase tracking-widest text-[#d4af37] font-medium border border-[#d4af37]/40 px-3 py-1 rounded-full bg-black/40 backdrop-blur-sm">{t("laser.enlarge")}</span>
                        </div>
                     </div>
                   </DialogTrigger>
@@ -360,20 +355,6 @@ const LaserAlessandrite = () => {
                 </Dialog>
               </div>
             ))}
-          </div>
-
-          <div className="mt-16 flex justify-center items-center">
-            <a
-              href="https://wa.me/393296164667?text=Buongiorno,%20vorrei%20informazioni%20sul%20trattamento%20Laser%20Alessandrite"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-gold-gradient text-[#131313] px-10 py-5 rounded-full text-[10px] md:text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20"
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-              </svg>
-              Prenota Ora
-            </a>
           </div>
         </div>
       </section>

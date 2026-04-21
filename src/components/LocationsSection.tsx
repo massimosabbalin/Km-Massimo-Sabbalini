@@ -1,56 +1,59 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { MapPin, Phone } from "lucide-react";
-
-const locations = [
-  {
-    city: "Bolzano (BZ)",
-    address: "KM Esthetic Clinic - Via Cassa di Risparmio 8, 39100 Bolzano (BZ)",
-    phone: "+39 329 6164667",
-    mapQuery: "Via+Cassa+di+Risparmio+8+Bolzano+BZ",
-  },
-  {
-    city: "Trento (TN)",
-    address: "Via Malfatti 21, 38122 Trento (TN)",
-    phone: "+39 329 6164667",
-    mapQuery: "Via+Malfatti+21+Trento+TN",
-  },
-  {
-    city: "Merano (BZ)",
-    address: "Via Luis Zuegg 24/A, 39012 Merano (BZ)",
-    phone: "+39 329 6164667",
-    mapQuery: "Via+Luis+Zuegg+24/A+Merano+BZ",
-  },
-  {
-    city: "Adria (RO)",
-    address: "Piazza Cavour 8, 45011 Adria (RO)",
-    phone: "+39 329 6164667",
-    mapQuery: "Piazza+Cavour+8+Adria+RO",
-  },
-  {
-    city: "Arco (TN)",
-    address: "Via Linfano 52, 38062 Arco (TN)",
-    phone: "+39 329 6164667",
-    mapQuery: "Via+Linfano+52+Arco+TN",
-  },
-  {
-    city: "Saletto (PD)",
-    address: "Via Roma 28b, 35046 Saletto (Borgo Veneto) PD",
-    phone: "+39 329 6164667",
-    mapQuery: "Via+Roma+28b+Saletto+PD",
-  },
-  {
-    city: "Cittadella (PD)",
-    address: "Via Postunia di Levante 8, 35013 Cittadella (PD)",
-    phone: "+39 329 6164667",
-    mapQuery: "Via+Postunia+di+Levante+8+Cittadella+PD",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const LocationsSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [activeLocation, setActiveLocation] = useState(0);
+  const { t, language } = useLanguage();
+
+  const locations = [
+    {
+      city: language === "IT" ? "Bolzano (BZ)" : "Bozen (BZ)",
+      address: "KM Esthetic Clinic - Via Cassa di Risparmio 8, 39100 Bolzano (BZ)",
+      phone: "+39 329 6164667",
+      mapQuery: "Via+Cassa+di+Risparmio+8+Bolzano+BZ",
+    },
+    {
+      city: "Trento (TN)",
+      address: "Via Malfatti 21, 38122 Trento (TN)",
+      phone: "+39 329 6164667",
+      mapQuery: "Via+Malfatti+21+Trento+TN",
+    },
+    {
+      city: language === "IT" ? "Merano (BZ)" : "Meran (BZ)",
+      address: "Via Luis Zuegg 24/A, 39012 Merano (BZ)",
+      phone: "+39 329 6164667",
+      mapQuery: "Via+Luis+Zuegg+24/A+Merano+BZ",
+    },
+    {
+      city: "Adria (RO)",
+      address: "Piazza Cavour 8, 45011 Adria (RO)",
+      phone: "+39 329 6164667",
+      mapQuery: "Piazza+Cavour+8+Adria+RO",
+    },
+    {
+      city: "Arco (TN)",
+      address: "Via Linfano 52, 38062 Arco (TN)",
+      phone: "+39 329 6164667",
+      mapQuery: "Via+Linfano+52+Arco+TN",
+    },
+    {
+      city: "Saletto (PD)",
+      address: "Via Roma 28b, 35046 Saletto (Borgo Veneto) PD",
+      phone: "+39 329 6164667",
+      mapQuery: "Via+Roma+28b+Saletto+PD",
+    },
+    {
+      city: "Cittadella (PD)",
+      address: "Via Postunia di Levante 8, 35013 Cittadella (PD)",
+      phone: "+39 329 6164667",
+      mapQuery: "Via+Postunia+di+Levante+8+Cittadella+PD",
+    },
+  ];
+
   const active = locations[activeLocation];
 
   return (
@@ -63,10 +66,10 @@ const LocationsSection = () => {
           className="text-center mb-20"
         >
           <p className="font-body text-xs tracking-[0.4em] uppercase text-primary mb-4">
-            Le Nostre Sedi
+            {t("locations.subtitle")}
           </p>
           <h2 className="font-display text-4xl md:text-6xl text-foreground mb-4">
-            Dove <span className="text-gold-gradient italic">Trovarci</span>
+            {t("locations.title")} <span className="text-gold-gradient italic">{t("locations.titleItalic")}</span>
           </h2>
           <div className="w-16 h-[1px] bg-gold-gradient mx-auto" />
         </motion.div>
@@ -93,24 +96,14 @@ const LocationsSection = () => {
                       }`}>
                       {loc.city}
                     </h3>
-                    <a
-                      href={`https://www.google.com/maps/search/${loc.mapQuery}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-muted-foreground text-sm mb-1 hover:text-primary transition-colors"
-                      onClick={(e) => e.stopPropagation()}
-                    >
+                    <div className="flex items-center gap-2 text-muted-foreground text-sm mb-1 hover:text-primary transition-colors">
                       <MapPin size={14} className="text-primary/60" />
                       {loc.address}
-                    </a>
-                    <a
-                      href={`tel:${loc.phone.replace(/\s/g, "")}`}
-                      className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors"
-                      onClick={(e) => e.stopPropagation()}
-                    >
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground text-sm hover:text-primary transition-colors">
                       <Phone size={14} className="text-primary/60" />
                       {loc.phone}
-                    </a>
+                    </div>
                   </div>
                   <div className={`w-3 h-3 rounded-full mt-2 transition-colors ${activeLocation === i ? "bg-primary" : "bg-border"
                     }`} />
@@ -128,7 +121,7 @@ const LocationsSection = () => {
             <div className="relative aspect-[4/3] rounded-2xl border border-border overflow-hidden">
               <iframe
                 key={activeLocation}
-                title={`Mappa ${active.city}`}
+                title={`Mapa ${active.city}`}
                 src={`https://www.google.com/maps?q=${active.mapQuery}&output=embed`}
                 className="w-full h-full border-0 grayscale contrast-125 opacity-80"
                 loading="lazy"
@@ -142,7 +135,7 @@ const LocationsSection = () => {
                 rel="noopener noreferrer"
                 className="font-body text-xs tracking-[0.15em] uppercase text-primary hover:text-foreground transition-colors"
               >
-                Apri in Google Maps →
+                {t("locations.openMaps")}
               </a>
             </div>
           </motion.div>

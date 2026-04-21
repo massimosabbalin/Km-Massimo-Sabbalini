@@ -4,8 +4,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { blogPosts } from "@/data/blogData";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Blog = () => {
+  const { t, language } = useLanguage();
+
   return (
     <main className="min-h-screen bg-[#131313]">
       <Navbar />
@@ -21,13 +24,13 @@ const Blog = () => {
             className="text-center max-w-3xl mx-auto"
           >
             <span className="text-[10px] uppercase tracking-[0.4em] text-[#d4af37] font-medium mb-4 block">
-              Esplora la Medicina Estetica Moderna
+              {t("blog.subtitle")}
             </span>
             <h1 className="font-headline-xl text-4xl md:text-6xl text-[#e5e2e1] mb-6 leading-tight">
-              Il Nostro <span className="text-gold-gradient italic">Blog</span>
+              {t("blog.title")} <span className="text-gold-gradient italic">{t("blog.titleItalic")}</span>
             </h1>
             <p className="text-[#a0a0a0] text-sm md:text-base leading-relaxed">
-              Consigli professionali, approfondimenti tecnologici e tutto ciò che devi sapere sui trattamenti laser e di medicina estetica d'avanguardia.
+              {t("blog.description")}
             </p>
           </motion.div>
         </div>
@@ -50,12 +53,12 @@ const Blog = () => {
                   <div className="relative h-64 overflow-hidden">
                     <img
                       src={post.image}
-                      alt={post.title}
+                      alt={post.title[language]}
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
                     <div className="absolute top-4 left-4">
                       <span className="bg-[#131313]/80 backdrop-blur-md text-[#d4af37] text-[10px] uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/5">
-                        {post.category}
+                        {post.category[language]}
                       </span>
                     </div>
                   </div>
@@ -74,15 +77,15 @@ const Blog = () => {
                     </div>
                     
                     <h2 className="text-xl md:text-2xl font-display text-[#e5e2e1] mb-4 group-hover:text-[#d4af37] transition-colors duration-300 leading-snug">
-                      {post.title}
+                      {post.title[language]}
                     </h2>
                     
                     <p className="text-[#a0a0a0] text-sm line-clamp-3 mb-8 flex-1 leading-relaxed">
-                      {post.excerpt}
+                      {post.excerpt[language]}
                     </p>
 
                     <div className="flex items-center gap-2 text-[#d4af37] text-[10px] uppercase tracking-[0.2em] font-medium group/btn">
-                      Leggi Articolo
+                      {t("blog.readMore")}
                       <ArrowRight size={14} className="transition-transform duration-300 group-hover/btn:translate-x-2" />
                     </div>
                   </div>

@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.png";
 import heroBg from "@/assets/hero-bg.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
   const [introComplete, setIntroComplete] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const timer = setTimeout(() => setIntroComplete(true), 3500);
@@ -83,7 +85,7 @@ const HeroSection = () => {
                 transition={{ duration: 2.5, delay: 0.8, times: [0, 0.3, 0.7, 1] }}
                 className="mt-4 font-body text-[10px] tracking-[0.5em] uppercase text-primary/60"
               >
-                Medicina & Chirurgia Estetica
+                {t("hero.subtitle")}
               </motion.p>
             </motion.div>
           </motion.div>
@@ -112,7 +114,7 @@ const HeroSection = () => {
           transition={{ duration: 1.2, delay: 3.5 }}
           className="font-body text-xs tracking-[0.4em] uppercase text-primary mb-6"
         >
-          Medicina & Chirurgia Estetica
+          {t("hero.subtitle")}
         </motion.p>
 
         <motion.h1
@@ -121,9 +123,9 @@ const HeroSection = () => {
           transition={{ duration: 1.2, delay: 3.8 }}
           className="font-display text-4xl md:text-7xl lg:text-8xl leading-[1.1] md:leading-[0.95] mb-6"
         >
-          <span className="text-foreground">La Bellezza è</span>
+          <span className="text-foreground">{t("hero.title")}</span>
           <br />
-          <span className="text-gold-gradient italic">un'Arte</span>
+          <span className="text-gold-gradient italic">{t("hero.titleItalic")}</span>
         </motion.h1>
 
         <motion.p
@@ -132,8 +134,7 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 4.1 }}
           className="font-body text-sm md:text-base text-muted-foreground max-w-xl mx-auto mb-10 leading-relaxed"
         >
-          Dott. Massimo Sabbalini — Chirurgia Plastica e Medicina Estetica d'eccellenza.
-          Risultati naturali, tecniche all'avanguardia.
+          {t("hero.description")}
         </motion.p>
 
         <motion.div
@@ -143,18 +144,18 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a
-            href="https://wa.me/393296164667?text=Buongiorno,%20vorrei%20delle%20info%20sui%20vostri%20trattamenti%20"
+            href={`https://wa.me/393296164667?text=${encodeURIComponent(t("nav.whatsappMessage"))}`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-gold-gradient text-primary-foreground px-10 py-4 rounded-full text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
           >
-            Prenota Consulenza
+            {t("hero.ctaBook")}
           </a>
           <a
             href="#trattamenti"
             className="border border-primary/30 text-foreground px-10 py-4 rounded-full text-xs tracking-[0.2em] uppercase font-medium hover:bg-primary/10 transition-all duration-300"
           >
-            Scopri i Trattamenti
+            {t("hero.ctaDiscover")}
           </a>
         </motion.div>
       </div>
