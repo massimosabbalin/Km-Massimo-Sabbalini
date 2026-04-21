@@ -83,7 +83,7 @@ export const blogPosts: BlogPost[] = [
     category: { IT: "Laser Terapia", DE: "Lasertherapie" },
     date: "21 Aprile 2024",
     readTime: "4 min",
-    image: "/blog/couperose_900x760.jpeg",
+    image: "/blog/couoperosa.png",
     content: {
       IT: `
         <p>La couperose e la presenza di capillari dilatati sul viso possono causare disagio e influenzare la sicurezza di sé. Il <strong>K-Laser Blue Derma</strong> rappresenta una delle innovazioni più significative nel trattamento di queste condizioni vascolari, offrendo risultati precisi e tempi di guarigione minimi.</p>
