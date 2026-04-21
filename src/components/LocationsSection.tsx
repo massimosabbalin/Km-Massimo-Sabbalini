@@ -4,34 +4,46 @@ import { MapPin, Phone } from "lucide-react";
 
 const locations = [
   {
-    city: "Trento",
-    address: "Via Roma 42, 38122 Trento (TN)",
+    city: "Bolzano (BZ)",
+    address: "KM Esthetic Clinic - Via Cassa di Risparmio 8, 39100 Bolzano (BZ)",
     phone: "+39 329 6164667",
-    mapQuery: "Via+Roma+42+Trento+TN",
+    mapQuery: "Via+Cassa+di+Risparmio+8+Bolzano+BZ",
   },
   {
-    city: "Bolzano",
-    address: "Piazza Walther 15, 39100 Bolzano (BZ)",
+    city: "Trento (TN)",
+    address: "Via Malfatti 21, 38122 Trento (TN)",
     phone: "+39 329 6164667",
-    mapQuery: "Piazza+Walther+15+Bolzano+BZ",
+    mapQuery: "Via+Malfatti+21+Trento+TN",
   },
   {
-    city: "Udine",
-    address: "Via Galilei 42, 33010 Feletto U. (UD)",
+    city: "Merano (BZ)",
+    address: "Via Luis Zuegg 24/A, 39012 Merano (BZ)",
     phone: "+39 329 6164667",
-    mapQuery: "Via+Galilei+42+Feletto+Umberto+UD",
+    mapQuery: "Via+Luis+Zuegg+24/A+Merano+BZ",
+  },
+  {
+    city: "Adria (RO)",
+    address: "Piazza Cavour 8, 45011 Adria (RO)",
+    phone: "+39 329 6164667",
+    mapQuery: "Piazza+Cavour+8+Adria+RO",
+  },
+  {
+    city: "Arco (TN)",
+    address: "Via Linfano 52, 38062 Arco (TN)",
+    phone: "+39 329 6164667",
+    mapQuery: "Via+Linfano+52+Arco+TN",
   },
   {
     city: "Saletto (PD)",
-    address: "Via Vittorio Veneto 88, 35046 Saletto (PD)",
+    address: "Via Roma 28b, 35046 Saletto (Borgo Veneto) PD",
     phone: "+39 329 6164667",
-    mapQuery: "Via+Vittorio+Beneto+88+Saletto+PD",
+    mapQuery: "Via+Roma+28b+Saletto+PD",
   },
   {
-    city: "Riva del Garda",
-    address: "Viale Rovereto 12, 38066 Riva del Garda (TN)",
+    city: "Cittadella (PD)",
+    address: "Via Postunia di Levante 8, 35013 Cittadella (PD)",
     phone: "+39 329 6164667",
-    mapQuery: "Viale+Rovereto+12+Riva+del+Garda+TN",
+    mapQuery: "Via+Postunia+di+Levante+8+Cittadella+PD",
   },
 ];
 
