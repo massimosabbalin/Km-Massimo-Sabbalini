@@ -303,7 +303,7 @@ export const blogPosts: BlogPost[] = [
     category: { IT: "Medicina Estetica", DE: "Ästhetische Medizin" },
     date: "17 Aprile 2024",
     readTime: "5 min",
-    image: "/blog/biorivitalizzazione.png",
+    image: "/blog/full.png",
     content: {
       IT: `
         <p>Il concetto di <strong>Full Face Beautification</strong> segna il passaggio da una medicina estetica "correttiva" a una medicina "valorizzativa". Non si tratta più di riempire una singola ruga, ma di studiare l'architettura del volto nella sua interezza per restituirgli equilibrio, luce e giovinezza.</p>
