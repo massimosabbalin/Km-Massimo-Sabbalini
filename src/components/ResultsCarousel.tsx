@@ -12,14 +12,13 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const resultsData = [
-  { id: 1, src: '/risultati/1.png', alt: 'Trattamento occhiaie prima e dopo - Risultato naturale e luminoso Dott. Massimo Sabbalini', title: 'Correzione Occhiaie' },
-  { id: 2, src: '/risultati/2.png', alt: 'Rinofiller profilo sinistro prima e dopo - Armonizzazione del naso senza chirurgia Dott. Massimo Sabbalini', title: 'Rinofiller Profilo Sx' },
-  { id: 4, src: '/risultati/4.png', alt: 'Filler labbra prima e dopo - Volume naturale e definizione Dott. Massimo Sabbalini', title: 'Filler Labbra Naturale' },
-  { id: 5, src: '/risultati/5.png', alt: 'Filler labbra prima e dopo - Idratazione e volume Dott. Massimo Sabbalini', title: 'Filler Labbra Idratazione' },
-  { id: 6, src: '/risultati/6.png', alt: 'Filler labbra prima e dopo - Effetto rimpolpante naturale', title: 'Filler Labbra Rimpolpante' },
-  { id: 7, src: '/risultati/7.png', alt: 'Filler labbra con sorriso prima e dopo - Dott. Massimo Sabbalini', title: 'Filler Labbra in Sorriso' },
-  { id: 8, src: '/risultati/8.png', alt: 'Filler labbra prima e dopo - Correzione asimmetrie Dott. Massimo Sabbalini', title: 'Filler Labbra Correzione' },
-  { id: 9, src: '/risultati/9.png', alt: 'Filler labbra prima e dopo - Risultato estetico armonico Dott. Massimo Sabbalini', title: 'Filler Labbra Armonico' },
+  { id: 20, src: '/risultati/20.png', alt: 'Paziente Dott. Massimo Sabbalini - Risultato armonioso', title: 'Novità' },
+  { id: 1, src: '/risultati/1.png', alt: 'Correzione Occhiaie - Sguardo riposato Dott. Massimo Sabbalini', title: 'Occhiaie' },
+  { id: 2, src: '/risultati/2.png', alt: 'Rinofiller Profilo - Armonia Nasale Dott. Massimo Sabbalini', title: 'Rinofiller' },
+  { id: 13, src: '/risultati/13.png', alt: 'Armonizzazione Profilo Volto Dott. Massimo Sabbalini', title: 'Full Face' },
+  { id: 14, src: '/risultati/14.png', alt: 'Rinofiller Uomo - Definizione Dott. Massimo Sabbalini', title: 'Rinofiller Uomo' },
+  { id: 10, src: '/risultati/10.png', alt: 'Profilo Donna - Risultato Naturale Dott. Massimo Sabbalini', title: 'Profilo Donna' },
+  { id: 4, src: '/risultati/4.png', alt: 'Filler Labbra - Volume Dott. Massimo Sabbalini', title: 'Labbra' },
 ];
 
 const ResultsCarousel = () => {

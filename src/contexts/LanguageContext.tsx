@@ -63,12 +63,14 @@ const translations: Record<Language, any> = {
       book: "Prenota Ora",
       whatsappMessage: "Buongiorno Dott. Sabbalini, vorrei ricevere informazioni riguardo i trattamenti e prenotare una consulenza."
     },
-    results: {
       subtitle: "Prima e Dopo",
       title: "Risultati",
       titleAccent: "Reali",
+      carouselTitle: "Casi",
+      carouselAccent: "Clinici",
       desc: "Una selezione di casi clinici reali per mostrare l'armonia e la naturalezza dei risultati ottenibili presso la Km Clinic.",
-      enlarge: "Clicca per ingrandire"
+      enlarge: "Clicca per ingrandire",
+      viewAll: "Vedi Tutti i Risultati"
     },
     hero: {
       subtitle: "Medicina & Chirurgia Estetica",
@@ -270,12 +272,14 @@ const translations: Record<Language, any> = {
       book: "Jetzt Buchen",
       whatsappMessage: "Guten Tag Dr. Sabbalini, ich möchte Informationen zu Behandlungen erhalten und einen Termin vereinbaren."
     },
-    results: {
       subtitle: "Vorher und Nachher",
       title: "Echte",
       titleAccent: "Ergebnisse",
+      carouselTitle: "Klinische",
+      carouselAccent: "Fälle",
       desc: "Eine Auswahl an echten klinischen Fällen, um die Harmonie e Natürlichkeit der in der Km Clinic erzielbaren Ergebnisse zu zeigen.",
-      enlarge: "Zum Vergrößern anklicken"
+      enlarge: "Zum Vergrößern anklicken",
+      viewAll: "Alle Ergebnisse ansehen"
     },
     hero: {
       subtitle: "Ästhetische Medizin & Chirurgie",

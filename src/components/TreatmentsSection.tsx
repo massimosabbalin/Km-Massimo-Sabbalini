@@ -27,12 +27,12 @@ const TreatmentsSection = () => {
     {
       name: t("treatments.list.botox.name"),
       description: t("treatments.list.botox.desc"),
-      image: "/risultati/11.png",
+      image: "/risultati/12.png",
     },
     {
       name: t("treatments.list.rhino.name"),
       description: t("treatments.list.rhino.desc"),
-      image: "/risultati/19.png",
+      image: "/risultati/20.png",
     },
   ];
 
