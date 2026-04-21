@@ -305,7 +305,6 @@ const LaserAlessandrite = () => {
           </div>
 
           <div className="mt-16 flex justify-center items-center">
-          <div className="mt-16 flex justify-center items-center">
             <a
               href="https://wa.me/393296164667?text=Buongiorno,%20vorrei%20informazioni%20sul%20trattamento%20Laser%20Alessandrite"
               target="_blank"
