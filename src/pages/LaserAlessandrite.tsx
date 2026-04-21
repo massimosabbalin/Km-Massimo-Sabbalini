@@ -342,6 +342,8 @@ const LaserAlessandrite = () => {
                 </div>
               </div>
             ))}
+          </div>
+
           <div className="mt-16 flex justify-center items-center">
             <a
               href="https://wa.me/393296164667?text=Buongiorno,%20dopo%20aver%20visto%20i%20risultati,%20vorrei%20prenotare%20una%20PROVA%20GRATUITA%20per%20il%20Laser%20Alessandrite"
