@@ -23,6 +23,7 @@ const resultsData = [
   { id: 17, src: '/risultati/17.png', alt: 'Trattamento ringiovanimento perioculare prima e dopo Dott. Massimo Sabbalini', title: 'Ringiovanimento Occhi' },
   { id: 18, src: '/risultati/18.png', alt: 'Rinofiller uomo correzione profilo nasale prima e dopo Dott. Massimo Sabbalini', title: 'Profilo Nasale Uomo' },
   { id: 19, src: '/risultati/19.png', alt: 'Filler labbra e armonizzazione profilo prima e dopo Dott. Massimo Sabbalini', title: 'Armonizzazione Profilo Labbra' },
+  { id: 20, src: '/risultati/20.png', alt: 'Trattamento medicina estetica prima e dopo Dott. Massimo Sabbalini', title: 'Risultato Trattamento' },
 ];
 
 const Risultati = () => {
