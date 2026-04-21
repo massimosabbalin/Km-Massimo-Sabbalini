@@ -63,6 +63,7 @@ const translations: Record<Language, any> = {
       book: "Prenota Ora",
       whatsappMessage: "Buongiorno Dott. Sabbalini, vorrei ricevere informazioni riguardo i trattamenti e prenotare una consulenza."
     },
+    results: {
       subtitle: "Prima e Dopo",
       title: "Risultati",
       titleAccent: "Reali",
@@ -151,16 +152,7 @@ const translations: Record<Language, any> = {
         accept: "Accetta Tutto",
         decline: "Solo Necessari"
     },
-    results: {
-        subtitle: "Galleria Fotografica",
-        title: "I Miei",
-        titleAccent: "Risultati",
-        desc: "Sfoglia la galleria per visualizzare i risultati dei trattamenti estetici. Ogni piano terapeutico è personalizzato per esaltare la bellezza naturale di ogni paziente.",
-        enlarge: "Clicca per ingrandire",
-        viewAll: "Vedi tutti i risultati",
-        carouselTitle: "Facciamo parlare i",
-        carouselAccent: "risultati"
-    },
+
     privacy: {
         title: "Privacy",
         titleItalic: "Policy",
@@ -272,12 +264,13 @@ const translations: Record<Language, any> = {
       book: "Jetzt Buchen",
       whatsappMessage: "Guten Tag Dr. Sabbalini, ich möchte Informationen zu Behandlungen erhalten und einen Termin vereinbaren."
     },
+    results: {
       subtitle: "Vorher und Nachher",
       title: "Echte",
       titleAccent: "Ergebnisse",
       carouselTitle: "Klinische",
       carouselAccent: "Fälle",
-      desc: "Eine Auswahl an echten klinischen Fällen, um die Harmonie e Natürlichkeit der in der Km Clinic erzielbaren Ergebnisse zu zeigen.",
+      desc: "Eine selezione di casi clinici reali per mostrare l'armonia e la naturalezza dei risultati ottenibili presso la Km Clinic.",
       enlarge: "Zum Vergrößern anklicken",
       viewAll: "Alle Ergebnisse ansehen"
     },
@@ -359,16 +352,6 @@ const translations: Record<Language, any> = {
         desc: "Wir verwenden eigene Cookies und Cookies von Drittanbietern (Meta, Google, TikTok), um Ihr Surferlebnis zu verbessern, den Datenverkehr zu analysieren und Ihnen personalisierte Werbeinhalte anzubieten. Durch die Einsicht in unsere Cookie-Richtlinie können Sie mehr erfahren oder die Zustimmung verweigern.",
         accept: "Alle akzeptieren",
         decline: "Nur Notwendige"
-    },
-    results: {
-        subtitle: "Fotogalerie",
-        title: "Meine",
-        titleAccent: "Ergebnisse",
-        desc: "Durchsuchen Sie die Galerie, um die Ergebnisse der ästhetischen Behandlungen zu sehen. Jeder Behandlungsplan wird individuell angepasst, um die natürliche Schönheit jedes Patienten hervorzuheben.",
-        enlarge: "Zum Vergrößern klicken",
-        viewAll: "Alle Ergebnisse ansehen",
-        carouselTitle: "Lassen wir die",
-        carouselAccent: "Ergebnisse sprechen"
     },
     notFound: {
         title: "Oops! Seite nicht gefunden",
