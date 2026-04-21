@@ -89,11 +89,21 @@ const LaserAlessandrite = () => {
               <p>
                 Questa tecnologia è il trattamento d'elezione per i fototipi chiari, garantendo una rimozione dei peli più rapida e profonda, agendo direttamente sul bulbo pilifero senza danneggiare i tessuti circostanti.
               </p>
+              <div className="bg-[#1b1b1c] p-6 md:p-8 border-l-2 border-[#d4af37] mt-8">
+                <h4 className="font-headline-md text-[#e5e2e1] text-lg mb-3">L'Efficacia del Trattamento Medico</h4>
+                <p className="text-xs md:text-sm leading-relaxed mb-4">
+                  Oltre alla componente estetica, il Laser Alessandrite agisce come un vero protocollo clinico. È la tecnologia più indicata dai dermatologi per chi soffre di <span className="text-[#f2ca50]">squilibri ormonali</span> o irsutismo, garantendo risultati dove i sistemi tradizionali falliscono. 
+                </p>
+                <p className="text-xs md:text-sm leading-relaxed">
+                  Dimentica le follicoliti e le dolorose <span className="text-[#f2ca50]">irritazioni da ceretta e rasoio</span>: l'energia laser non solo elimina il pelo ma rigenera la qualità della pelle, lasciandola visibilmente più liscia, luminosa e sana seduta dopo seduta.
+                </p>
+              </div>
               <ul className="space-y-3 md:space-y-4 mt-6 md:mt-8">
                 {[
                   "Efficacia superiore su peli sottili e chiari",
                   "Approvato FDA per la sicurezza clinica",
-                  "Riduzione permanente dei peli in meno sedute"
+                  "Soluzione definitiva per follicoliti e irritazioni",
+                  "Ideale anche per peli legati a problemi ormonali"
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-3 md:gap-4">
                     <span className="material-symbols-outlined text-[#d4af37] text-xl">check_circle</span>
